@@ -1,2 +1,2 @@
-# mbed-os-docsonly-examples
- Examples currently in use by Mbed OS docs that are in need of a home
+# Mbed OS Docs-Only Examples
+This repository contains example applications that currently only exist in the Mbed OS docs.
