@@ -1,3 +1,19 @@
+/*
+* Copyright (c) 2018 ARM Limited. All rights reserved.
+* SPDX-License-Identifier: Apache-2.0
+* Licensed under the Apache License, Version 2.0 (the License); you may
+* not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an AS IS BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+
 #if !DEVICE_QSPI
 #error [NOT_SUPPORTED] QSPI not supported for this target
 #endif
@@ -32,7 +48,7 @@ static bool mem_ready()
             printf("Reading Status Register failed \n");
         }
         wait_ms(1);
-    } while ( (status_value[0] & BIT_WIP) != 0 && retries);
+    } while ((status_value[0] & BIT_WIP) != 0 && retries);
 
     if ((status_value[0] & BIT_WIP) != 0) {
         printf ("mem_ready FALSE: status value = 0x%x\n", (int)status_value[0]);
@@ -51,7 +67,7 @@ static int write_enable()
         return status;
     }
 
-    if ( false == mem_ready()) {
+    if (false == mem_ready()) {
         printf("Device not ready \n");
         return status;
     }
@@ -88,7 +104,7 @@ static int flash_init()
         return status;
     }
 
-    if ( false == mem_ready()) {
+    if (false == mem_ready()) {
         printf("Device not ready \n");
         return -1;
     }
@@ -102,7 +118,7 @@ static int flash_init()
         return status;
     }
 
-    if ( false == mem_ready()) {
+    if (false == mem_ready()) {
         printf("Device not ready \n");
         return -1;
     }
@@ -116,13 +132,13 @@ static int sector_erase(unsigned int flash_addr)
         return -1;
     }
 
-    if( QSPI_STATUS_OK!= qspi_device.command_transfer(CMD_ERASE, (((int)flash_addr) & 0x00FFF000), NULL, 0, NULL, 0))
+    if (QSPI_STATUS_OK!= qspi_device.command_transfer(CMD_ERASE, (((int)flash_addr) & 0x00FFF000), NULL, 0, NULL, 0))
     {
         printf("Erase failed\n");
         return -1;
     }
 
-    if ( false == mem_ready()) {
+    if (false == mem_ready()) {
         printf("Device not ready \n");
         return -1;
     }
@@ -157,6 +173,7 @@ int main() {
         printf("Write Enabe failed \n");
         return -1;
     }
+
     result = qspi_device.write(CMD_WRITE, -1, address, tx_buf, &buf_len);
     if (result != QSPI_STATUS_OK) {
         printf("Write failed\n");
@@ -164,7 +181,7 @@ int main() {
     }
     printf("Write done: %s \n", tx_buf);
 
-    if ( false == mem_ready()) {
+    if (false == mem_ready()) {
         printf("Device not ready \n");
         return -1;
     }
@@ -174,6 +191,7 @@ int main() {
         printf("Read failed\n");
         return result;
     }
+
     printf ("Data Read = %s\n", rx_buf);
     return 0;
 }
