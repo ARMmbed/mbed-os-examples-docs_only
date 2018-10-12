@@ -1,9 +1,9 @@
 #include "mbed.h"
 #include "rtos_idle.h"
 
-// led for main thread
+// LED for main thread
 DigitalOut led2(LED2);
-// led for idle thread
+// LED for idle thread
 DigitalOut led1(LED1);
 LowPowerTicker watchdogTicker;
 Thread watchdogThread;
