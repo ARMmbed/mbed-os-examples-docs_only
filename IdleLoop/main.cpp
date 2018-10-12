@@ -1,14 +1,16 @@
 #include "mbed.h"
 #include "rtos_idle.h"
 
-DigitalOut led(LED2);
+// led for main thread
+DigitalOut led2(LED2);
+// led for idle thread
 DigitalOut led1(LED1);
 LowPowerTicker watchdogTicker;
 Thread watchdogThread;
 EventQueue watchdogQueue;
 
 void watchdogRefreshHandler() {
-    led = !led;
+    led2 = !led2;
 };
 
 void watchdogRefreshIsr() {
