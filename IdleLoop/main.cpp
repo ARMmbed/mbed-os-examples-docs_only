@@ -7,12 +7,8 @@ LowPowerTicker watchdogTicker;
 Thread watchdogThread;
 EventQueue watchdogQueue;
 
-
-//if we use Serial as a CLI console . The CLI thread allways get the read lock , if another thread want to print something to serial console, it will be blocked by CLI thread .
-
 void watchdogRefreshHandler() {
     led = !led;
-    // target-specific feed function
 };
 
 void watchdogRefreshIsr() {
@@ -21,6 +17,7 @@ void watchdogRefreshIsr() {
 
 void new_idle_loop()
 {
+	// Executes when no other thread is running
 	led1 = !led1;
 }
 
