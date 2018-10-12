@@ -17,12 +17,13 @@ void watchdogRefreshIsr() {
 
 void new_idle_loop()
 {
-	// Executes when no other thread is running
-	led1 = !led1;
+    // Executes when no other thread is running
+    led1 = !led1;
 }
 
 int main() {
-	watchdogThread.start(callback(&watchdogQueue, &EventQueue::dispatch_forever));
+
+    watchdogThread.start(callback(&watchdogQueue, &EventQueue::dispatch_forever));
     watchdogTicker.attach(callback(&watchdogRefreshIsr), 5);
     rtos_attach_idle_hook(&new_idle_loop);
 }
