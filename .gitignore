@@ -1,5 +1,5 @@
 .DS_Store
-.BUILD/
+BUILD/
 .mbed
 projectfiles
 *.py*
