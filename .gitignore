@@ -1,0 +1,6 @@
+.DS_Store
+BUILD/
+.mbed
+projectfiles
+*.py*
+mbed-os/
