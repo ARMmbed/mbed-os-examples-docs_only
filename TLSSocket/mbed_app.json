@@ -1,0 +1,10 @@
+{
+    "macros": ["MBEDTLS_SHA1_C"],
+    "target_overrides": {
+        "*": {
+            "platform.stdio-convert-newlines": true,
+            "mbed-trace.enable": 1,
+            "rtos.main-thread-stack-size": 8192
+        }
+    }
+}
