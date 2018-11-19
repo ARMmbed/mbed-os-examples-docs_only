@@ -1,0 +1,10 @@
+{
+    "target_overrides": {
+        "*": {
+            "nsapi.socket-stats-enable": true,
+            "nsapi.socket-stats-max-count": 10,
+            "platform.stdio-convert-newlines": true,
+            "target.network-default-interface-type": "ETHERNET"
+        }
+    }
+}
