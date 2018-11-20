@@ -47,7 +47,6 @@ void print_stats()
     }
 }
 
-#include "mbed.h"
 
 // Network interface
 NetworkInterface *net;
