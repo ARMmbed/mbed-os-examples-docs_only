@@ -53,7 +53,6 @@ NetworkInterface *net;
 
 int main()
 {
-    // Request the shared queue
     Thread *thread = new Thread(osPriorityNormal1, 2048);
     int remaining;
     int rcount;
