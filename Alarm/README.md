@@ -1,10 +1,10 @@
-# Alarm example using Mbed OS
+## Alarm example using Mbed OS
 
 This guide reviews the steps required to build and run a basic alarm application on an Mbed OS platform.
 
-Please install [mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
+Please install [Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
 
-## Import the example application
+### Import the example application
 
 From the command-line, import the example:
 
@@ -13,7 +13,7 @@ mbed import mbed-os-example-alarm
 cd mbed-os-example-alarm
 ```
 
-### Now compile
+#### Now compile
 
 Invoke `mbed compile`, and specify the name of your platform and your favorite toolchain (`GCC_ARM`, `ARM`, `IAR`). For example, for the ARM Compiler 5:
 
@@ -46,14 +46,15 @@ Total Flash memory (text + data): 40837(+40837) bytes
 Image: ./BUILD/K64F/IAR/mbed-os-example-alarm.bin
 ```
 
-### Program your board
+#### Program your board
 
-1. Connect your mbed device to the computer over USB.
-1. Copy the binary file to the mbed device.
+1. Connect your Mbed device to the computer over USB.
+1. Copy the binary file to the Mbed device.
 1. Press the reset button to start the program.
+1. Press **Button1** for the number of desired hours to delay. Press **Button2** to cycle to minutes, and repeat the previous step for the number of desired minutes.
+1. Press **Button2** again to start the alarm.
+1. Press **Button2** again once the alarm triggers to silence it. Both an LED and a digital out pin will go high on the alarm trigger and go back low on an alarm reset.
 
-Press Button1 for the number of desired hours to delay. Press Button2 to cycle to minutes and repeat the previous step for number of desired minutes. Press Button2 again to start the alarm. Press Button2 again once the alarm triggers to silence it. Both an LED and a digital out pin will go high on the alarm trigger, and go back low on an alarm reset.
-
-## Troubleshooting
+### Troubleshooting
 
 If you have problems, you can review the [documentation](https://os.mbed.com/docs/latest/tutorials/debugging.html) for suggestions on what could be wrong and how to fix it.
