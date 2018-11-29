@@ -60,27 +60,27 @@ void trigger_alarm_out(void) {
     alarm_led = 0;
 }
 
-/* Use buttons to select alarm time. Cycle through hours in an incrementing
- * fashion using button1, hit select and increment through minutes. Hit
+/* Use buttons to select the alarm time. Cycle through hours in an incrementing
+ * fashion using Button1. Press select, and increment through minutes. Press
  * select one more time to begin the alarm timer.
  *
- * The Time LEDs will blink in time with the button inputs to show the
- * currently selected alarm time. Once select is hit a second time to begin
+ * The Time LEDs blink in time with the button inputs to show the
+ * currently selected alarm time. Once you press select a second time to begin
  * the timer, the LEDs will blink out the configured delay in hours and
  * minutes before going into a low power sleep mode.
  *
- * Once the alarm fires, hitting the select button will turn the alarm off
+ * Once the alarm fires, pressing the select button will turn the alarm off
  * until the next time it fires.
  *__________________________________________________________________________
  * You may also use the RTC (hardware or software through the Time API) to
  * set a real world time and set an alarm for a specific timestamp rather
- * than on a delay. This would require manually setting the time on each
- * reset however, or an internet connection to automatically collect the
+ * than on a delay. However, this requires manually setting the time on each
+ * reset, or an internet connection to automatically collect the
  * time.
  */
 // Main thread
 int main() {
-    // Configure interrupt-in pins (button controls)
+    // Configure interrupt in pins (button controls)
     sel.rise(inc_select);
     inc_time.fall(set_time_leds);
     inc_time.rise(inc_delay);
