@@ -21,7 +21,7 @@ mbed deploy
 
 
 ```
-mbed compile -m cc3220sf -t ARM
+mbed compile -m cc3220sf -t gcc_arm 
 ```
 
 #### Program your board
