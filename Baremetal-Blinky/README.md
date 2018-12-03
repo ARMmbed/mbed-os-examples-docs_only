@@ -1,10 +1,10 @@
 ## Baremetal Blinky example using Mbed OS
 
-This guide reviews the steps required to build and run a baremetal Blinky application on Ti's CC3220SF LaunchXL platform without using DigitalOut class and timers.
+This guide reviews the steps required to build and run a baremetal Blinky application on TI's CC3220SF LaunchXL platform without using DigitalOut class and timers.
 
 Please install [Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
 
-This example retrieves code from https://github.com/ARMmbed/mbed-os-ti-port. It's a private repo, please contact support@mbed.com to request access.
+This example retrieves code from https://github.com/ARMmbed/mbed-os-ti-port. It's a private repo; please contact support@mbed.com to request access.
 
 ### Import the example application
 
@@ -28,5 +28,5 @@ mbed compile -m cc3220sf -t gcc_arm
 
 1. Connect your Mbed device to the computer over USB.
 2. Copy the binary file to the Mbed device.
-3. Observe red LED blinking.
+3. Observe the red LED blinking.
 
