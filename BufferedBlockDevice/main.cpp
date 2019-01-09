@@ -41,7 +41,7 @@ int main()
 	memset(buf,0,8);
 	err = buf_bd.read(buf, 5, 3);
 	
-	printf("Read Data (Expected 567): %d %d %d\n", (int)(buf[0]), (int)(buf[1]), (int)(buf[2]));
+	printf("Read Data (Expected 5,6,7): %d %d %d\n", (int)(buf[0]), (int)(buf[1]), (int)(buf[2]));
 	
 	// Ensure programmed data is flushed to the underlying block device
 	err = buf_bd.sync();
