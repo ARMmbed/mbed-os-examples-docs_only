@@ -7,7 +7,7 @@ SPIFBlockDevice spif(PTE2, PTE4, PTE1, PTE5);
 int main() {
     printf("spif test\n");
 
-    // Initialize the SPI flash device and print the memory layout
+    // Initialize the SPI flash device, and print the memory layout
     spif.init();
     printf("spif size: %llu\n",         spif.size());
     printf("spif read size: %llu\n",    spif.get_read_size());
