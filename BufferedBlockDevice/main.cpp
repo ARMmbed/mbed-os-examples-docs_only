@@ -46,6 +46,6 @@ int main()
 	// Ensure programmed data is flushed to the underlying block device
 	err = buf_bd.sync();
 	
-	// Finally Deinint the BufferedBlockDevice (which also deinit its underlying block device)
+	// Finally, deinint the BufferedBlockDevice (which also deinits its underlying block device)
 	err = buf_bd.deinit();
 }
