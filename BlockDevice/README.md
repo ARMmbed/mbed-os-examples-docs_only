@@ -1,3 +1,3 @@
 # BlockDevice example
 
-BlockDevice usage example for Mbed OS
+This is a BlockDevice usage example for Mbed OS.

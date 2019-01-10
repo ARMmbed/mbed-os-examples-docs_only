@@ -18,24 +18,24 @@
 #include <stdio.h>
 #include <algorithm>
 
- // This will take the system's default block device 
+ // This takes the system's default block device.
 BlockDevice *bd = BlockDevice::get_default_instance();
 
 // Instead of the default block device, you can define your own block device.
-// For example: HeapBlockDevice with size of 2048 bytes, read size 1, write size 1 and erase size 512.
+// For example, HeapBlockDevice with a size of 2048 bytes, read size 1, write size 1, and erase size 512.
 // #include "HeapBlockDevice.h"
 // BlockDevice *bd = new HeapBlockDevice(2048, 1, 1, 512);
 
-// Entry point for the example
+// Entry point for the example:
 int main() {
     printf("--- Mbed OS block device example ---\n");
 
-    // Initialize the block device
+    // Initialize the block device.
     printf("bd->init()\n");
     int err = bd->init();
     printf("bd->init -> %d\n", err);
 
-    // Get device geometry
+    // Get device geometry.
     bd_size_t read_size    = bd->get_read_size();
     bd_size_t program_size = bd->get_program_size();
     bd_size_t erase_size   = bd->get_erase_size();
@@ -55,11 +55,11 @@ int main() {
     buffer_size = buffer_size - (buffer_size % program_size);
     char *buffer = new char[buffer_size];
 
-    // Update buffer with our string we want to store
+    // Update the buffer with the string we want to store.
     strncpy(buffer, "Hello Storage!", buffer_size);
 
-    // Write data to first block, write occurs in two parts,
-    // an erase followed by a program
+    // Write data to the first block. Write occurs in two parts;
+    // an erase followed by a program.
     printf("bd->erase(%d, %lld)\n", 0, erase_size);
     err = bd->erase(0, erase_size);
     printf("bd->erase -> %d\n", err);
@@ -68,11 +68,11 @@ int main() {
     err = bd->program(buffer, 0, buffer_size);
     printf("bd->program -> %d\n", err);
 
-    // Clobber the buffer so we don't get old data
+    // Clobber the buffer so we don't get old data.
     memset(buffer, 0xcc, buffer_size);
 
-    // Read the data from the first block, note that the program_size must be
-    // a multiple of the read_size, so we don't have to check for alignment
+    // Read the data from the first block. Note that program_size must be
+    // a multiple of read_size, so we don't have to check for alignment.
     printf("bd->read(%p, %d, %d)\n", buffer, 0, buffer_size);
     err = bd->read(buffer, 0, buffer_size);
     printf("bd->read -> %d\n", err);
@@ -91,7 +91,7 @@ int main() {
     }
     printf("---\n");
 
-    // Deinitialize the block device
+    // Deinitialize the block device.
     printf("bd->deinit()\n");
     err = bd->deinit();
     printf("bd->deinit -> %d\n", err);
