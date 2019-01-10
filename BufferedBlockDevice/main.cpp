@@ -33,7 +33,7 @@ int main()
 		 buf[i] = i;
 	}
 	
-	// Now we can program an 8 byte buffer (couldn't do that in underlying BD, having 512-byte program size)
+	// Now we can program an 8-byte buffer (we couldn't do that in the underlying block device, which had a 512-byte program size)
 	err = buf_bd.program(buf, 0, sizeof(buf));
 	
 	
