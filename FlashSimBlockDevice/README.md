@@ -1,3 +1,3 @@
 # FlashSimBlockDevice example
 
-FlashSimBlockDevice usage example for Mbed OS
+This is a FlashSimBlockDevice usage example for Mbed OS.
