@@ -37,7 +37,7 @@ int main()
 	err = buf_bd.program(buf, 0, sizeof(buf));
 	
 	
-	// Now read any amount of data from any address (e.g. 3 last bytes of data from address 5)
+	// Now read any amount of data from any address (for example, the last three bytes of data from address 5)
 	memset(buf,0,8);
 	err = buf_bd.read(buf, 5, 3);
 	
