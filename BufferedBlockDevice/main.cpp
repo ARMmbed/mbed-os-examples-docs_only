@@ -22,7 +22,7 @@ int main()
 {
 	// Define a HeapBlockDevice with program size 512 bytes and read size 256
 	HeapBlockDevice heap_bd(1024, 256, 512, 512);
-	// BufferedBlockDevice will be used to program/read much smaller size than the underlying bd program/read size
+	// BufferedBlockDevice is used to program or read a much smaller amount of data than the minimum program or read size supported by the underlying block device 
 	BufferedBlockDevice buf_bd(&heap_bd);
 	
 	// This initializes the buffered block device (as well as the underlying heap block device)
