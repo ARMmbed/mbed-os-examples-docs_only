@@ -25,5 +25,5 @@ int main(void) {
     printf("Create the FAT filesystem instance, files can now be written to the FAT filesystem in partition 1\n");
     FATFileSystem fat("fat", &part1);
 
-    printf("You should be abale to read the SD on windows machine and verify if the exampe is working\n");
+    printf("To verify that the example worked, read the SD on a Windows machine.\n");
 }
