@@ -1,8 +1,7 @@
-# QSPI example #
+# QSPI driver usage example for Mbed OS
 
-QSPI driver usage example for mbed OS
+This example shows how to use the Mbed OS QuadSPI (QSPI) driver to access a device interfaced over QSPI. The program does read/write operations on Flash memory connected over the QSPI interface using driver APIs in default QSPI mode.
 
-This is a example showing how to use mbed-OS QSPI driver to access a device interfaced over Quad-SPI
-The program does read/write operations on Flash memory connected over Quad-SPI interface using driver APIs in default QSPI mode.
+You can configure QSPI into different modes, based on underlying interface support. Refer to [QSPI flash block device](https://github.com/ARMmbed/qspif-blockdevice) for more information about this.
 
-QSPI can be configured into different modes, based on underlying interface support. Refer to QSPI flash block device for more information (https://github.com/ARMmbed/qspif-blockdevice)
+Note: For more context or to see this example in a rendered form, you can import into the Arm Mbed Online Compiler, please see [the documentation](https://os.mbed.com/docs/mbed-os/latest/apis/quadspi-qspi.html).
