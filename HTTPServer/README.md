@@ -6,7 +6,7 @@ Request parsing is done through [nodejs/http-parser](https://github.com/nodejs/h
 
 ## To build
 
-1. Open ``mbed_app.json`` and change the `network-interface` option to your connectivity method ([more info](https://github.com/ARMmbed/easy-connect)).
+1. Open ``mbed_app.json`` and change the `network-default-interface-type` option to your connectivity method ([more info](https://os.mbed.com/docs/development/apis/network-interfaces.html)
 2. Build the project in the online compiler or using mbed CLI.
 3. Flash the project to your development board.
 4. Attach a serial monitor to your board to see the debug messages.

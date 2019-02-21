@@ -1,3 +1,8 @@
+/* mbed Microcontroller Library
+ * Copyright (c) 2019 ARM Limited
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "mbed.h"
 #include "http_server.h"
 #include "http_response_builder.h"
@@ -43,7 +48,7 @@ void request_handler(ParsedHttpRequest *request, TCPSocket *socket)
         report_thread_stats();
 
         HttpResponseBuilder builder(200);
-        builder.send(socket, NULL, 0);
+        builder.send(socket, /*NULL, 0*/"HELLO!", 6);
     } else {
         HttpResponseBuilder builder(404);
         builder.send(socket, NULL, 0);
@@ -52,7 +57,7 @@ void request_handler(ParsedHttpRequest *request, TCPSocket *socket)
 
 int main()
 {
-    printf("Running...3.0\r\n");
+    printf("Starting Server...\r\n");
 
     // Connect to the network (see mbed_app.json for the connectivity method used)
     NetworkInterface *network = NetworkInterface::get_default_instance();

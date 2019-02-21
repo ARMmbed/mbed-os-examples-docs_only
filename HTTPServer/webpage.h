@@ -5,12 +5,12 @@ char response[] =
     "<h1>mbed webserver</h1>"
     "<button id=\"toggle\">Toggle LED</button>"
     "<script>document.querySelector('#toggle').onclick = function() {"
-    "var x = new XMLHttpRequest(); x.open('POST', '/toggle'); x.send();"
+    "   var x = new XMLHttpRequest(); x.open('POST', '/toggle'); x.send();"
     "}</script>"
     "<button id=\"stats\">Print Thread Stats</button>"
-    "<script>document.querySelector('#stats').onclick = function() {"
-    "var x = new XMLHttpRequest(); x.open('POST', '/stats'); x.send();"
+    "<script>"
+    "document.querySelector('#stats').onclick = function() {"
+    "   var x = new XMLHttpRequest(); x.open('POST', '/stats'); x.send();"
     "}</script>"
-
     "</body>"
     "</html>";
