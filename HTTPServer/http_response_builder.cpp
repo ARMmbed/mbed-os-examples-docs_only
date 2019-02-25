@@ -147,6 +147,7 @@ static const char *get_http_status_string(uint16_t status_code)
 HttpResponseBuilder::HttpResponseBuilder(uint16_t a_status_code)
     : status_code(a_status_code), status_message(get_http_status_string(a_status_code))
 {
+    set_header("Content-Type", "text/plain");
 }
 
 void HttpResponseBuilder::set_header(string key, string value)
