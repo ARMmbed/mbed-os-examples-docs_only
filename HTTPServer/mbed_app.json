@@ -1,16 +1,14 @@
 {
-    "config": {
-       "network-default-interface-type": {
-            "help": "options are ETHERNET, WIFI_ESP8266, WIFI_ODIN, WIFI_RTW, MESH_LOWPAN_ND, MESH_THREAD",
-            "value": "ETHERNET"
-        }
-    },
     "target_overrides": {
         "*": {
             "mbed-http.http-buffer-size": 2048,
             "platform.stdio-baud-rate": 115200,
+            "platform.stdio-convert-newlines": true,
             "platform.thread-stats-enabled": 1,
-            "nsapi.socket-stats-enable": 1
+            "nsapi.socket-stats-enable": 1,
+            "nsapi.default-wifi-security": "WPA_WPA2",
+            "nsapi.default-wifi-ssid": "\"SSID\"",
+            "nsapi.default-wifi-password": "\"Password\""
         }
     }
 }
