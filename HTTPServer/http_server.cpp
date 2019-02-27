@@ -20,7 +20,6 @@
 HttpServer::HttpServer(NetworkInterface *network) : _network(network)
 {
     _network = network;
-    _network->connect();
 }
 
 HttpServer::~HttpServer()
@@ -48,7 +47,10 @@ nsapi_error_t HttpServer::start(uint16_t port, Callback<void(ParsedHttpRequest *
         return ret;
     }
 
-    server->listen(HTTP_SERVER_MAX_CONCURRENT);
+    ret = server->listen(HTTP_SERVER_MAX_CONCURRENT);
+    if (ret != NSAPI_ERROR_OK) {
+        return ret;
+    }
 
     handler = a_handler;
 
