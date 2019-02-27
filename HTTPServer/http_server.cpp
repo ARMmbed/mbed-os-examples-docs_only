@@ -17,7 +17,7 @@
 
 #include "http_server.h"
 
-HttpServer::HttpServer(NetworkInterface *network) : _network(network)
+HttpServer::HttpServer(NetworkInterface *network) : _network(network), server_thread(osPriorityNormal, 2048, NULL, "server_thread")
 {
     _network = network;
 }
