@@ -21,8 +21,14 @@
 #include "mbed.h"
 #include "drivers/QSPI.h"
 
-#define CMD_WRITE          0x02
+// for Nordic platforms fast read should be used and the QSPI flash memory start address
+// along with the total buffer size need to be 4-byte aligned/divisible by 4
+#if TARGET_NORDIC
+#define CMD_READ           0x0B // Fast read
+#else
 #define CMD_READ           0x03
+#endif
+#define CMD_WRITE          0x02
 #define CMD_ERASE          0x20
 #define CMD_RDSR           0x5
 #define CMD_WREN           0x6
@@ -31,7 +37,7 @@
 #define STATUS_REG_SIZE    2
 #define BIT_WIP            0x1
 #define BIT_WEL            0x2
-#define BUF_SIZE           10
+#define BUF_SIZE           12
 
 // hardware ssel (where applicable)
 QSPI qspi_device(QSPI_FLASH1_IO0, QSPI_FLASH1_IO1, QSPI_FLASH1_IO2, QSPI_FLASH1_IO3, QSPI_FLASH1_SCK, QSPI_FLASH1_CSN); // io0, io1, io2, io3, sclk, ssel
@@ -147,7 +153,7 @@ static int sector_erase(unsigned int flash_addr)
 }
 
 int main() {
-    char tx_buf[] = { 'h', 'e', 'l', 'l', 'o', '\0' };
+    char tx_buf[BUF_SIZE] = { 'h', 'e', 'l', 'l', 'o', '\0' };
     char rx_buf[BUF_SIZE] = {0};
     size_t buf_len = sizeof(tx_buf);
     qspi_status_t result;
