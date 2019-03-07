@@ -21,8 +21,8 @@
 #include "mbed.h"
 #include "drivers/QSPI.h"
 
-// for Nordic platforms fast read should be used and the QSPI flash memory start address
-// along with the total buffer size need to be 4-byte aligned/divisible by 4
+// For Nordic platforms, use fast read. The QSPI flash memory start address,
+// along with the total buffer size, needs to be 4-byte aligned, or divisible by 4.
 #if TARGET_NORDIC
 #define CMD_READ           0x0B // Fast read
 #else
