@@ -1,6 +1,6 @@
-## Birect Register Blinky example using Mbed OS
+## Direct Register Blinky example using Mbed OS
 
-This guide reviews the steps required to build and run a basic Blinky application on FRDM-K64F without using DigitalOut class and timers by manipulating the hardware mapped IO registers directly.
+This guide reviews the steps required to build and run a Blinky application on the FRDM-K64F without using DigitalOut class and timers by manipulating the hardware mapped IO registers directly.
 
 Please install [Mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
 
@@ -16,7 +16,6 @@ mbed deploy
 ```
 
 #### Now compile
-
 
 ```
 mbed compile -m k64f -t gcc_arm 
