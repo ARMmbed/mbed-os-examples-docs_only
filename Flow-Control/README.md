@@ -1,3 +1,3 @@
 # Application Flow Control
 
-The examples in this folder utilize Blinky in order to explore flow control and task management in Arm Mbed OS applications.
+The examples in this folder use Blinky to explore flow control and task management in Arm Mbed OS applications. To see them in context, please see the [published documentation](https://os.mbed.com/docs/mbed-os/v5.12/tutorials/application-flow-control.html).
