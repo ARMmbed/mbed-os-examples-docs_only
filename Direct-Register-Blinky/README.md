@@ -26,4 +26,3 @@ mbed compile -m k64f -t gcc_arm
 1. Connect your Mbed device to the computer over USB.
 2. Copy the binary file to the Mbed device.
 3. Observe LED blinking.
-
