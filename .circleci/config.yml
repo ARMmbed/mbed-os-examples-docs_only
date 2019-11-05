@@ -7,17 +7,19 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.6.1
-    working_directory: ~/repo
+    working_directory: ~/work
     steps:
       - checkout:
+          path: sinppet/TESTS
+      - run: mv sinppet/TESTS/mbed-os.lib .
+      - run: wget -q https://developer.arm.com/-/media/Files/downloads/gnu-rm/6_1-2017q1/gcc-arm-none-eabi-6-2017-q1-update-linux.tar.bz2
+      - run: tar -xjf gcc-arm-none-eabi-6-2017-q1-update-linux.tar.bz2
+      - run: echo 'export PATH=~/work/gcc-arm-none-eabi-6-2017-q1-update/bin:$PATH' >> $BASH_ENV
+      - run: sudo pip install mbed-cli
+      - run: git clone https://github.com/ARMmbed/mbed-os.git
+      - run: sudo pip install -r mbed-os/requirements.txt
+      - run: ls -al
+      - run: mbed config root .
+      - run: mbed update
+      - run: mbed test --compile-list -m K64F -t GCC_ARM
 
-      - run:
-          name: install dependencies
-          command: |
-            git clone https://github.com/ARMmbed/mbed-os.git
-            pip install -r mbed-os/requirements.txt
-
-      - run:
-          name: check files
-          command: |
-            mbed test --help
