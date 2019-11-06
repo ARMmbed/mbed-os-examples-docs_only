@@ -16,7 +16,7 @@
 
 #include "BufferedBlockDevice.h"
 #include "HeapBlockDevice.h"
-#include <stdlib.h>
+#include <cstdio>
 
 int main()
 {
@@ -29,7 +29,7 @@ int main()
 	int err = buf_bd.init();
 	
 	uint8_t buf[8];
-	for (uint i = 0; i < sizeof(buf); i++) {
+	for (uint8_t i = 0; i < sizeof(buf); i++) {
 		 buf[i] = i;
 	}
 	

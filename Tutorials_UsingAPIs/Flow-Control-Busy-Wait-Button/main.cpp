@@ -1,6 +1,6 @@
 #include "mbed.h"
 
-DigitalIn button(SW1); // Change to match your board
+DigitalIn button(BUTTON1); // Change to match your board
 DigitalOut led(LED1);
 
 #define BUTTON_PRESS 0

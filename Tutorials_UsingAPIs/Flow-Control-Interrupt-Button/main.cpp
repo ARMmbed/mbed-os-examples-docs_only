@@ -1,6 +1,6 @@
 #include "mbed.h"
 
-InterruptIn button(SW1);
+InterruptIn button(BUTTON1);
 DigitalOut led(LED1);
 DigitalOut heartbeat(LED2);
 
