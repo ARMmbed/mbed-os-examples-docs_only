@@ -16,8 +16,6 @@
 
 #include "mbed.h"
 #include "USBCDC_ECM.h"
-#error a deliberate error to test the CI
-.
 /* Ethernet II frame */
 typedef struct {
     uint8_t dst_mac[6];
