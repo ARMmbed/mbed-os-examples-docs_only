@@ -7,9 +7,9 @@ int main()
     while (1) {
         myled = 1;
         // printf("LED On\r\n");
-        wait(0.2);
+        wait_us(200000);
         myled = 0;
         // printf("LED Off \r\n");
-        wait(0.2);
+        wait_us(200000);
     }
 }

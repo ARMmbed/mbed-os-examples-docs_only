@@ -17,6 +17,6 @@ int main()
     // spin in a main loop. flipper will interrupt it to call flip
     while (1) {
         led1 = !led1;
-        wait(0.2);
+        wait_us(200000);
     }
 }

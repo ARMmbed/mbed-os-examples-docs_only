@@ -25,7 +25,7 @@ void send_thread(void)
         message->current = (i * 0.1) * 11;
         message->counter = i;
         queue.put(message);
-        wait(1);
+        ThisThread::sleep_for(1000);
     }
 }
 
