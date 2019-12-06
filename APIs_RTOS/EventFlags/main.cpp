@@ -23,7 +23,7 @@ int main()
     while (true) {
         ThisThread::sleep_for(1000);
         event_flags.set(SAMPLE_FLAG1);
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(500);
         event_flags.set(SAMPLE_FLAG2);
     }
 }
