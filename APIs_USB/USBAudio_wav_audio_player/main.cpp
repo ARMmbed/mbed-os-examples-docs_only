@@ -1,4 +1,3 @@
-// Mbed WAV Audio Player
 #include "mbed.h"
 #include "USBAudio.h"
 #include "SDBlockDevice.h"

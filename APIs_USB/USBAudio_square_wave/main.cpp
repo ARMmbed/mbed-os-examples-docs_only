@@ -1,5 +1,3 @@
-// This example simply generates a square wave.
-// Use a program like Audacity to record and view the square wave, or route microphone(Mbed audio) to the output device.
 #include "mbed.h"
 #include "USBAudio.h"
 #include <math.h>

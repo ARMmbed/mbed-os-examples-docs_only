@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "mbed.h"
 #include "drivers/USBHID.h"
 

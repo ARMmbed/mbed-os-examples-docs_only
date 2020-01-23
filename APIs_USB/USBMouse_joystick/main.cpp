@@ -1,5 +1,3 @@
-//Grove - Thumb Joystick mouse
-//Constructor is blocking, so main will not run if the target's USB is not connected
 #include "mbed.h"
 #include "USBMouse.h"
 
