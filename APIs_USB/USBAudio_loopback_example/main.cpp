@@ -6,7 +6,8 @@
 #include "mbed.h"
 #include "USBAudio.h"
 
-int main() {
+int main()
+{
 
     USBAudio audio(true, 44100, 2, 44100, 2);
 

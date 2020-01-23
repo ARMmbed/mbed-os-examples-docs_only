@@ -5,9 +5,10 @@
 SDBlockDevice sd(PTE3, PTE1, PTE2, PTE4);
 USBMSD usb(&sd);
 
-int main() {
+int main()
+{
 
-    while(true) {
+    while (true) {
         usb.process();
     }
 

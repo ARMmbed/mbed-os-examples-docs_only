@@ -35,18 +35,19 @@
 
 USBMIDI midi;
 
-void PlayNote(int note, int octave, uint32_t duration){
-    if(note == REST){
+void PlayNote(int note, int octave, uint32_t duration)
+{
+    if (note == REST) {
         ThisThread::sleep_for(duration);
-    }
-    else{
+    } else {
         midi.write(MIDIMessage::NoteOn(note + octave));
         ThisThread::sleep_for(duration);
         midi.write(MIDIMessage::NoteOff(note + octave));
     }
 }
 
-void TakeMeOutToTheBallGame(){
+void TakeMeOutToTheBallGame()
+{
     //https://www.bethsnotesplus.com/2012/09/take-me-out-to-ball-game.html
     PlayNote(C, OCTAVE5, HALF_NOTE);
     PlayNote(C, OCTAVE6, QUARTER_NOTE);
@@ -146,7 +147,8 @@ void TakeMeOutToTheBallGame(){
     PlayNote(REST, 0, QUARTER_NOTE);
 }
 
-int main() {
+int main()
+{
     while (1) {
         TakeMeOutToTheBallGame();
     }

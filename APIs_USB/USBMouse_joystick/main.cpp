@@ -10,7 +10,8 @@ AnalogIn   ainy(A1);
 int16_t a_inx;
 int16_t a_iny;
 
-int main() {
+int main()
+{
     int16_t x = 0;
     int16_t y = 0;
 
@@ -24,32 +25,32 @@ int main() {
         printf("Y: %u\r\n", a_iny);
 
         // move position of mouse right
-        if(a_inx > 52){
+        if (a_inx > 52) {
             x = (x - (50 - a_inx)) / 3;
         }
         // move position of mouse left
-        else if(a_inx < 47){
+        else if (a_inx < 47) {
             x = (a_inx - 50) / 2;
         }
         // keeps mouse stationary in x-axis
-        else{
+        else {
             x = 0;
         }
         // move position of mouse down
-        if(a_iny > 52 && a_iny != 99){
+        if (a_iny > 52 && a_iny != 99) {
             y = (y - (50 - a_iny)) / 3;
         }
         // move position of mouse up
-        else if(a_iny < 47){
+        else if (a_iny < 47) {
             y = (a_iny - 50) / 2;
         }
         // keeps mouse stationary in y-axis
-        else{
+        else {
             y = 0;
         }
         // if button is pressed, a_iny will be 99
         // performs mouse left click
-        if(a_iny == 99){
+        if (a_iny == 99) {
             //click
             mouse.click(MOUSE_LEFT);
             ThisThread::sleep_for(400);

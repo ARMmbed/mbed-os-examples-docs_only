@@ -8,7 +8,8 @@
 FATFileSystem heap_fs("heap_fs");
 HeapBlockDevice bd(HEAP_BLOCK_DEVICE_SIZE, DEFAULT_BLOCK_SIZE);
 
-int main() {
+int main()
+{
     bd.init();
 
     FATFileSystem::format(&bd);
@@ -21,14 +22,14 @@ int main() {
     }
 
     // If still error, then report failure
-    if(err) {
+    if (err) {
         printf("Error: Unable to format/mount the device.\r\n");
-        while(1);
+        while (1);
     }
 
     USBMSD usb(&bd);
 
-    while(true) {
+    while (true) {
         usb.process();
     }
 

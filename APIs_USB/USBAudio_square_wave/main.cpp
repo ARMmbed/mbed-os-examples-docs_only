@@ -14,7 +14,8 @@ int16_t square_wave(uint32_t freq_hz, uint16_t amplitude, float time_s)
     }
 }
 
-int main() {
+int main()
+{
     uint32_t tx_freq = 16000;
     USBAudio audio(true, 8000, 2, tx_freq, 1, 10, 0x7bb8, 0x1112, 0x0100);
     float cur_time = 0;

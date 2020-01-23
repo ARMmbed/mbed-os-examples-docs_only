@@ -13,7 +13,8 @@
 SDBlockDevice sd(PTE3, PTE1, PTE2, PTE4);//MOSI, MISO, SCLK, CS
 FATFileSystem fs("sd", &sd);
 
-int main() {
+int main()
+{
     // Set the maximum speed so it can keep up with audio
     sd.frequency(FREQ_25_MHZ);
     // Load WAV file from SD card
@@ -24,11 +25,11 @@ int main() {
     }
     WaveAudioStream song(&file);//"song" is the audio data object
     // Check to see if file is a valid WAV file
-    if(song.get_valid() == 0){
+    if (song.get_valid() == 0) {
         error("ERROR: not valid WAV file\r\n");
     }
     // WAV file must be 16-bit
-    if(song.get_bytes_per_sample() != 2){
+    if (song.get_bytes_per_sample() != 2) {
         error("ERROR: WAV file not 2 bytes per sample (16-bit)\r\n");
     }
     USBAudio audio(true, 8000, song.get_channels(), song.get_sample_rate(), song.get_channels());
@@ -36,9 +37,9 @@ int main() {
     int num_bytes_read;
     printf("Playing Audio\r\n");
     // Reads and plays data from WAV file over USB until song is over
-    while(1){
+    while (1) {
         num_bytes_read = song.read(buffer, BUFFER_SIZE);
-        if(num_bytes_read == -1){
+        if (num_bytes_read == -1) {
             printf("Song Over\r\n");
             break;
         }
