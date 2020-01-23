@@ -13,7 +13,6 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
 #include "mbed.h"
 #include "USBCDC_ECM.h"
 
@@ -38,6 +37,6 @@ int main()
 {
     while (true) {
         ecm.send((uint8_t *)&packet, sizeof(packet));
-        wait(1.0);
+        ThisThread::sleep_for(1000);
     }
 }
