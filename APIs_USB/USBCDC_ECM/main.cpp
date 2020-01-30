@@ -20,6 +20,10 @@ USBCDC_ECM ecm;
 
 int main()
 {
+    // Let the USB device to setup
+    ThisThread::sleep_for(10);
+
+    // Send "Hello world" packets in loop
     while (true) {
         ecm.send((uint8_t *)&packet, sizeof(packet));
         ThisThread::sleep_for(1000);
