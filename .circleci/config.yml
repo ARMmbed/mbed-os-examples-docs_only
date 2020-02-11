@@ -17,5 +17,5 @@ jobs:
           cd work
           mbed config root .
           mbed update
+          mbed add https://github.com/c1728p9/AudioPlayer
           mbed test --compile -m K64F -t GCC_ARM -n sinppet-* --app-config=sinppet/TESTS/test.json -v
-
