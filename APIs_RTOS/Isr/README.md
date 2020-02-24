@@ -1,4 +1,4 @@
-# Isr example
+# ISR example
 
-This example shows how to use various isr mechanisms in MbedOS.
+This example shows how to use various ISR mechanisms in Mbed OS.
 
