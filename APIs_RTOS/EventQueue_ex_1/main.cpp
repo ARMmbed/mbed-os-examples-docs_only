@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020 Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ */
 #include "mbed.h"
 
 DigitalOut led1(LED1);
