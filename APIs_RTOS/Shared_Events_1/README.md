@@ -1,4 +1,4 @@
 # Shared event example
 
-Instead of creating special thread user can use shared event queue and dispatch the global event queue from main thread.
+Instead of creating a special thread, you can use a shared event queue and dispatch the global event queue from the main thread.
 
