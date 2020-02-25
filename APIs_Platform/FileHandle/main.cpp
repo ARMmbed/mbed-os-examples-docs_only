@@ -2,8 +2,8 @@
 
 static DigitalOut led2(LED2);
 
-// UARTSerial derives from FileHandle
-static UARTSerial device(STDIO_UART_TX, STDIO_UART_RX);
+// BufferedSerial derives from FileHandle
+static BufferedSerial device(STDIO_UART_TX, STDIO_UART_RX);
 
 int main()
 {
