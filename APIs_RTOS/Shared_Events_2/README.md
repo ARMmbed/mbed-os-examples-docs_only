@@ -1,4 +1,3 @@
 # Shared event example
 
-Instead of creating special thread user can use shared event queue i.e. sharing it with other system components and saving RAM. As the event queue is shared, you should limit the execution time of your event functions to avoid delaying other users’ events excessively. 
-
+Instead of creating a special thread, you can use a shared event queue, which shares the queue with other system components, saving RAM. Because the event queue is shared, you should limit the execution time of your event functions to avoid delaying other users’ events excessively. 
