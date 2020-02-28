@@ -1,4 +1,4 @@
-# Timout example
+# Timeout example
 
-This example shows how to use a Timeout with callback to schedule delayed events.
+This example shows how to use Timeout with a callback to schedule delayed events.
 
