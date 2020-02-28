@@ -1,6 +1,10 @@
 # Time example
 
-The time interface is used to access the Real Time Clock (RTC). The time is set as an offset measured in seconds from the time epoch, which is library specific. In general the accepted time epoch is the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time). An online converter between human readable time and Unix Epoch time is handy, try [this](https://www.epochconverter.com/) one. If the system is not battery powered then on each power-on (cold reset) the rtc time will be reset. Make sure to either provide battery power to keep the time or to set it each time the device is started. During software or warm reset (e.g watchdog reset) RTC counts without interrupt.
+You can use the time interface to access the Real Time Clock (RTC). The time is set as an offset measured in seconds from the time epoch, which is library specific. The accepted time epoch is the [Unix Epoch](https://en.wikipedia.org/wiki/Unix_time).
 
-There is no official time API, instead you use the functions in the example code.
+**Tip:** An online converter between human readable time and Unix Epoch time is useful, such as the [EpochConverter](https://www.epochconverter.com/).</span>
+
+If the system is not battery powered, the RTC time resets at each power on, or cold reset. Make sure to either provide battery power to keep the time or to set it each time the device starts. During software or warm reset (for example, watchdog reset) RTC counts without interrupt.
+
+There is no official time API. Instead, use the functions in the example code.
 
