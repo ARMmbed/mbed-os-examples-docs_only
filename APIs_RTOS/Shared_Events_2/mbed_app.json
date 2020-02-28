@@ -1,0 +1,7 @@
+{
+    "target_overrides": {
+        "*": {
+            "events.shared-dispatch-from-application": true
+        }
+     }
+}
