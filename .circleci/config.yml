@@ -7,14 +7,15 @@ jobs:
   build:
     docker:
       - image: mbedos/mbed-os-env:stable
-    working_directory: ~/repo
     steps:
       - checkout:
-          path: work/sinppet/TESTS
-      - run: mv work/sinppet/TESTS/mbed-os.lib work/
-      - run: git clone https://github.com/ARMmbed/mbed-os.git work/mbed-os
+          path: sinppet/TESTS
       - run: |
-          cd work
+          cd sinppet/TESTS
+          python3 .circleci/repo_checks.py
+      - run: mv sinppet/TESTS/mbed-os.lib .
+      - run: git clone https://github.com/ARMmbed/mbed-os.git mbed-os
+      - run: |
           mbed config root .
           mbed update
           mbed add https://github.com/c1728p9/AudioPlayer
