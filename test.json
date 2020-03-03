@@ -5,8 +5,8 @@
 			"spif-driver.SPI_MOSI"  : "D11", 
 			"spif-driver.SPI_MISO"  : "D12",
 			"spif-driver.SPI_CLK"   : "D13",
-			"spif-driver.SPI_CS"    : "D10"
-
+			"spif-driver.SPI_CS"    : "D10",
+			"target.components_add": ["DATAFLASH"]
 		}
 	}
 }
