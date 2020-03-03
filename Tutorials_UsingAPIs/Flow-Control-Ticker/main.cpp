@@ -4,16 +4,18 @@ Ticker flipper;
 DigitalOut led1(LED1);
 DigitalOut led2(LED2);
 
-void flip() {
+void flip()
+{
     led2 = !led2;
 }
 
-int main() {
+int main()
+{
     led2 = 1;
     flipper.attach(&flip, 2.0); // call flip function every 2 seconds
 
     // spin in a main loop. flipper will interrupt it to call flip
-    while(1) {
+    while (1) {
         led1 = !led1;
         wait(0.2);
     }

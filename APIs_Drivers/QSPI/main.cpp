@@ -57,7 +57,7 @@ static bool mem_ready()
     } while ((status_value[0] & BIT_WIP) != 0 && retries);
 
     if ((status_value[0] & BIT_WIP) != 0) {
-        printf ("mem_ready FALSE: status value = 0x%x\n", (int)status_value[0]);
+        printf("mem_ready FALSE: status value = 0x%x\n", (int)status_value[0]);
         mem_ready = false;
     }
     return mem_ready;
@@ -138,8 +138,7 @@ static int sector_erase(unsigned int flash_addr)
         return -1;
     }
 
-    if (QSPI_STATUS_OK!= qspi_device.command_transfer(CMD_ERASE, (((int)flash_addr) & 0x00FFF000), NULL, 0, NULL, 0))
-    {
+    if (QSPI_STATUS_OK != qspi_device.command_transfer(CMD_ERASE, (((int)flash_addr) & 0x00FFF000), NULL, 0, NULL, 0)) {
         printf("Erase failed\n");
         return -1;
     }
@@ -152,7 +151,8 @@ static int sector_erase(unsigned int flash_addr)
     return 0;
 }
 
-int main() {
+int main()
+{
     char tx_buf[BUF_SIZE] = { 'h', 'e', 'l', 'l', 'o', '\0' };
     char rx_buf[BUF_SIZE] = {0};
     size_t buf_len = sizeof(tx_buf);
@@ -160,14 +160,14 @@ int main() {
     uint32_t address = 0x1000;
 
     result = qspi_device.configure_format(QSPI_CFG_BUS_SINGLE, QSPI_CFG_BUS_SINGLE,
-                                        QSPI_CFG_ADDR_SIZE_24, QSPI_CFG_BUS_SINGLE,
-                                        QSPI_CFG_ALT_SIZE_8, QSPI_CFG_BUS_SINGLE, 0);
+                                          QSPI_CFG_ADDR_SIZE_24, QSPI_CFG_BUS_SINGLE,
+                                          QSPI_CFG_ALT_SIZE_8, QSPI_CFG_BUS_SINGLE, 0);
     if (result != QSPI_STATUS_OK) {
         printf("Config format failed\n");
     }
 
     if (QSPI_STATUS_OK != flash_init()) {
-        printf ("Init failed\n");
+        printf("Init failed\n");
         return -1;
     }
 
@@ -198,6 +198,6 @@ int main() {
         return result;
     }
 
-    printf ("Data Read = %s\n", rx_buf);
+    printf("Data Read = %s\n", rx_buf);
     return 0;
 }

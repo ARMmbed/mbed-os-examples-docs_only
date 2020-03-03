@@ -11,7 +11,8 @@ static DigitalOut led(LED1);
 // Create a UnbufferedSerial object with a default baud rate.
 static UnbufferedSerial serial_port(USBTX, USBRX);
 
-void on_rx_interrupt() {
+void on_rx_interrupt()
+{
     char c;
 
     // Toggle the LED.
@@ -24,7 +25,8 @@ void on_rx_interrupt() {
     }
 }
 
-int main(void) {
+int main(void)
+{
     // Set desired properties (9600-8-N-1).
     serial_port.baud(9600);
     serial_port.format(

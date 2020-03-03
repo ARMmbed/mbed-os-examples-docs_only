@@ -9,11 +9,13 @@ LowPowerTicker watchdogTicker;
 Thread watchdogThread;
 EventQueue watchdogQueue;
 
-void watchdogRefreshHandler() {
+void watchdogRefreshHandler()
+{
     led2 = !led2;
 };
 
-void watchdogRefreshIsr() {
+void watchdogRefreshIsr()
+{
     watchdogQueue.call(callback(&watchdogRefreshHandler));
 };
 
@@ -23,7 +25,8 @@ void new_idle_loop()
     led1 = !led1;
 }
 
-int main() {
+int main()
+{
 
     watchdogThread.start(callback(&watchdogQueue, &EventQueue::dispatch_forever));
     watchdogTicker.attach(callback(&watchdogRefreshIsr), 5);

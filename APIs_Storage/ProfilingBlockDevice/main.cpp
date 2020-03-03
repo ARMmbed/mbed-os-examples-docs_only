@@ -7,7 +7,8 @@
 HeapBlockDevice bd(2048, BLOCK_SIZE); // 2048 bytes with a block size of 512 bytes
 uint8_t block[BLOCK_SIZE] = "Hello World!\n";
 
-int main() {
+int main()
+{
     ProfilingBlockDevice profiler(&bd);
     profiler.init();
     profiler.erase(0, BLOCK_SIZE);

@@ -10,7 +10,7 @@ void bm_gpio_init(void)
 
 void bm_delay(void)
 {
-    volatile unsigned int i,j;
+    volatile unsigned int i, j;
 
     for (i = 0U; i < 100000U; i++) {
         for (j = 0U; j < 100U; j++) {
@@ -27,7 +27,7 @@ int main(void)
 
     while (1) {
         PTB->PTOR = (1U << 22U);
-      	bm_delay();
+        bm_delay();
     }
 }
 

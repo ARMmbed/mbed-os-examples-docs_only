@@ -25,7 +25,8 @@ volatile uint8_t  min_count    = 0;
 volatile uint8_t  select_state = 0;
 
 // Timer Callbacks
-void inc_select(void) {
+void inc_select(void)
+{
     if (select_state < 2) {
         select_state++;
     } else {
@@ -35,7 +36,8 @@ void inc_select(void) {
     }
 }
 
-void set_time_leds(void) {
+void set_time_leds(void)
+{
     if (select_state == 0) {
         hour_led = !hour_led;
     } else {
@@ -43,7 +45,8 @@ void set_time_leds(void) {
     }
 }
 
-void inc_delay(void) {
+void inc_delay(void)
+{
     if (select_state == 0) {
         delay += HOUR;
         hour_count++;
@@ -55,7 +58,8 @@ void inc_delay(void) {
     }
 }
 
-void trigger_alarm_out(void) {
+void trigger_alarm_out(void)
+{
     alarm_out = 1;
     alarm_led = 0;
 }
@@ -79,14 +83,17 @@ void trigger_alarm_out(void) {
  * time.
  */
 // Main thread
-int main() {
+int main()
+{
     // Configure interrupt in pins (button controls)
     sel.rise(inc_select);
     inc_time.fall(set_time_leds);
     inc_time.rise(inc_delay);
 
     // Sleep while waiting for user input to set the desired delay
-    while (select_state < 2) { wait_ms(10); }
+    while (select_state < 2) {
+        wait_ms(10);
+    }
 
     // Once the delay has been input, blink back the configured hours and
     // minutes selected
@@ -104,5 +111,7 @@ int main() {
     alarm_event.attach(&trigger_alarm_out, delay);
 
     // Sleep in the main thread
-    while (1) { sleep(); }
+    while (1) {
+        sleep();
+    }
 }

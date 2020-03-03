@@ -3,14 +3,15 @@
 #include "MBRBlockDevice.h"
 #include "FATFileSystem.h"
 
-int main(void) {
+int main(void)
+{
     // Create an SD card
     printf("Creating SD block device\n");
     SDBlockDevice sd(MBED_CONF_SD_SPI_MOSI, MBED_CONF_SD_SPI_MISO, MBED_CONF_SD_SPI_CLK, MBED_CONF_SD_SPI_CS);
 
     // Create a partition with 1 GB of space
     printf("Creating a partition with 1GB of space\n");
-    MBRBlockDevice::partition(&sd, 1, 0x83, 0, 1024*1024);
+    MBRBlockDevice::partition(&sd, 1, 0x83, 0, 1024 * 1024);
 
     // Create the block device that represents the partition
     printf("Create the block device that represents the partition\n");

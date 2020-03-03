@@ -7,25 +7,26 @@
 
 char buff[BLOCK];
 
-int main(void) {
+int main(void)
+{
     // Create a block device with 64 blocks of size 512
-    HeapBlockDevice mem(64*BLOCK, BLOCK);
+    HeapBlockDevice mem(64 * BLOCK, BLOCK);
 
     SlicingBlockDevice slices[NUMSLICES] = {
         // Create a block device that maps to the first 32 blocks
-        SlicingBlockDevice(&mem, 0 *BLOCK, 32*BLOCK),
+        SlicingBlockDevice(&mem, 0 * BLOCK, 32 * BLOCK),
 
         // Create a block device that maps to the middle 32 blocks
-        SlicingBlockDevice(&mem, 16*BLOCK, -16*BLOCK),
+        SlicingBlockDevice(&mem, 16 * BLOCK, -16 * BLOCK),
 
         // Create a block device that maps to the last 32 blocks
-        SlicingBlockDevice(&mem, 32*BLOCK)
+        SlicingBlockDevice(&mem, 32 * BLOCK)
     };
 
     for (int i = 0; i < NUMSLICES; i++) {
         // Initialize and erase the slice to prepar for programming
         slices[i].init();
-        slices[i].erase(0, 32*BLOCK);
+        slices[i].erase(0, 32 * BLOCK);
 
         // Construct the message for the block and write to the slice
         sprintf((char *)&buff, "test: %d", i);
@@ -38,7 +39,7 @@ int main(void) {
         printf("%s  --> ", buff);
 
         // Read back the programmed blocks through the sliced block device.
-        slices[i].read(&buff,0, BLOCK);
+        slices[i].read(&buff, 0, BLOCK);
         printf("%s\r\n", buff);
     }
 }

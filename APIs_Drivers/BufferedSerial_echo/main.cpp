@@ -14,7 +14,8 @@ static DigitalOut led(LED1);
 // Create a BufferedSerial object with a default baud rate.
 static BufferedSerial serial_port(USBTX, USBRX);
 
-int main(void) {
+int main(void)
+{
     // Set desired properties (9600-8-N-1).
     serial_port.set_baud(9600);
     serial_port.set_format(

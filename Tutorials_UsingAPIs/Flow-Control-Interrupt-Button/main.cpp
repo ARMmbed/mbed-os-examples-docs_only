@@ -4,13 +4,15 @@ InterruptIn button(BUTTON1);
 DigitalOut led(LED1);
 DigitalOut heartbeat(LED2);
 
-void toggle() {
+void toggle()
+{
     led = !led;
 }
 
-int main() {
+int main()
+{
     button.rise(&toggle);  // call toggle function on the rising edge
-    while(1) {             // wait around, interrupts will interrupt this!
+    while (1) {            // wait around, interrupts will interrupt this!
         heartbeat = !heartbeat;
         wait(0.25);
     }
