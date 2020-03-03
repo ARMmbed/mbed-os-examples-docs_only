@@ -29,13 +29,14 @@ auto event2 = make_user_allocated_event(handler, 2);
 // Creates event bound to the specified event queue
 auto event3 = queue.make_user_allocated_event(handler, 3);
 auto event4 = queue.make_user_allocated_event(handler, 4);
- 
-void handler(int count) {
+
+void handler(int count)
+{
     printf("UserAllocatedEvent = %d \n", count);
     return;
 }
- 
-void post_events(void) 
+
+void post_events(void)
 {
     // Single instance of user allocated event can be posted only once.
     // Event can be posted again if the previous dispatch has finished or event has been canceled.
@@ -64,7 +65,7 @@ void post_events(void)
     event4();
 }
 
-int main() 
+int main()
 {
     printf("*** start ***\n");
     Thread event_thread;

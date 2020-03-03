@@ -33,7 +33,7 @@ int inject_rot_key()
     memset(key, 0, DEVICE_KEY_16BYTE);
     memcpy(key, "ABCDEF1234567890", DEVICE_KEY_16BYTE);
     int size = DEVICE_KEY_16BYTE;
-    DeviceKey& devkey = DeviceKey::get_instance();
+    DeviceKey &devkey = DeviceKey::get_instance();
     return devkey.device_inject_root_of_trust(key, size);
 }
 
@@ -47,7 +47,7 @@ int main()
     printf("\nMbed OS DeviceKey example \n");
 
     // DeviceKey is a singleton
-    DeviceKey& devkey = DeviceKey::get_instance();
+    DeviceKey &devkey = DeviceKey::get_instance();
 
 #if !defined(DEVICE_TRNG)
 
@@ -59,7 +59,7 @@ int main()
         return -1;
     }
 
-    if ( DEVICEKEY_ALREADY_EXIST == ret ) {
+    if (DEVICEKEY_ALREADY_EXIST == ret) {
         printf("ROT Key already exists in the persistent memory.\n", ret);
     } else {
         printf("ROT Key injected and stored in persistent memory.\n", ret);

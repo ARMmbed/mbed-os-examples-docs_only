@@ -13,7 +13,7 @@ uint8_t block[512] = "Hello World!\n";
 int main()
 {
     // Call the SDBlockDevice instance initialisation method
-    if ( 0 != sd.init()) {
+    if (0 != sd.init()) {
         printf("Init failed \n");
         return -1;
     }
@@ -23,18 +23,18 @@ int main()
     printf("sd erase size: %llu\n",   sd.get_erase_size());
 
     // Set the frequency
-    if ( 0 != sd.frequency(5000000)) {
+    if (0 != sd.frequency(5000000)) {
         printf("Error setting frequency \n");
     }
 
-    if ( 0 != sd.erase(0, sd.get_erase_size())) {
+    if (0 != sd.erase(0, sd.get_erase_size())) {
         printf("Error Erasing block \n");
     }
 
     // Write data block to the device
-    if ( 0 == sd.program(block, 0, 512)) {
+    if (0 == sd.program(block, 0, 512)) {
         // Read the data block from the device
-        if ( 0 == sd.read(block, 0, 512)) {
+        if (0 == sd.read(block, 0, 512)) {
             // Print the contents of the block
             printf("%s", block);
         }

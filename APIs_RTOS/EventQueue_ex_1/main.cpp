@@ -13,7 +13,8 @@ Thread t;
 // It's safe to use UnbufferedSerial in ISR context
 UnbufferedSerial console(USBTX, USBRX);
 
-void rise_handler(void) {
+void rise_handler(void)
+{
     char buf[64];
     sprintf(buf, "rise_handler in context %p\n", ThisThread::get_id());
     console.write(buf, strlen(buf));
@@ -21,13 +22,15 @@ void rise_handler(void) {
     led1 = !led1;
 }
 
-void fall_handler(void) {
+void fall_handler(void)
+{
     printf("rise_handler in context %p\n", ThisThread::get_id());
     // Toggle LED
     led1 = !led1;
 }
 
-int main() {
+int main()
+{
     // Start the event queue
     t.start(callback(&queue, &EventQueue::dispatch_forever));
     printf("Starting in context %p\r\n", ThisThread::get_id());

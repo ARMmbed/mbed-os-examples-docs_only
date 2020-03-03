@@ -23,7 +23,8 @@
 HeapBlockDevice bd(2048, BLOCK_SIZE); // 2048 bytes with a block size of 512 bytes.
 uint8_t block[BLOCK_SIZE] = "Hello World!\n";
 
-int main() {
+int main()
+{
 
     int erase_unit_size = 512;
     HeapBlockDevice heap_bd(4 * erase_unit_size, 1, 4, erase_unit_size);

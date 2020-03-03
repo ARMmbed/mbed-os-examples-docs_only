@@ -12,11 +12,13 @@
 // Create a BufferedSerial object to be used by the system I/O retarget code.
 static BufferedSerial serial_port(TARGET_TX_PIN, TARGET_RX_PIN, 9600);
 
-FileHandle *mbed::mbed_override_console(int fd) {
+FileHandle *mbed::mbed_override_console(int fd)
+{
     return &serial_port;
 }
 
-int main(void) {
+int main(void)
+{
     // print to the console using the `serial_port` object.
     printf(
         "Mbed OS version %d.%d.%d\n",

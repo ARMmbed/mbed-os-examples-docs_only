@@ -4,7 +4,8 @@
 // Create flash device on SPI bus with PTE5 as chip select
 SPIFBlockDevice spif(PTE2, PTE4, PTE1, PTE5);
 
-int main() {
+int main()
+{
     printf("spif test\n");
 
     // Initialize the SPI flash device, and print the memory layout
@@ -15,7 +16,7 @@ int main() {
     printf("spif erase size: %llu\n",   spif.get_erase_size());
 
     // Write "Hello World!" to the first block
-    char *buffer = (char*)malloc(spif.get_erase_size());
+    char *buffer = (char *)malloc(spif.get_erase_size());
     sprintf(buffer, "Hello World!\n");
     spif.erase(0, spif.get_erase_size());
     spif.program(buffer, 0, spif.get_erase_size());

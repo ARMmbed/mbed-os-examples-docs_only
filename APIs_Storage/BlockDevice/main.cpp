@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <algorithm>
 
- // This takes the system's default block device.
+// This takes the system's default block device.
 BlockDevice *bd = BlockDevice::get_default_instance();
 
 // Instead of the default block device, you can define your own block device.
@@ -27,7 +27,8 @@ BlockDevice *bd = BlockDevice::get_default_instance();
 // BlockDevice *bd = new HeapBlockDevice(2048, 1, 1, 512);
 
 // Entry point for the example:
-int main() {
+int main()
+{
     printf("--- Mbed OS block device example ---\n");
 
     // Initialize the block device.
@@ -51,7 +52,7 @@ int main() {
     // Allocate a block with enough space for our data, aligned to the
     // nearest program_size. This is the minimum size necessary to write
     // data to a block.
-    size_t buffer_size = sizeof("Hello Storage!") + program_size-1;
+    size_t buffer_size = sizeof("Hello Storage!") + program_size - 1;
     buffer_size = buffer_size - (buffer_size % program_size);
     char *buffer = new char[buffer_size];
 
@@ -80,8 +81,8 @@ int main() {
     printf("--- Stored data ---\n");
     for (size_t i = 0; i < buffer_size; i += 16) {
         for (size_t j = 0; j < 16; j++) {
-            if (i+j < buffer_size) {
-                printf("%02x ", buffer[i+j]);
+            if (i + j < buffer_size) {
+                printf("%02x ", buffer[i + j]);
             } else {
                 printf("   ");
             }

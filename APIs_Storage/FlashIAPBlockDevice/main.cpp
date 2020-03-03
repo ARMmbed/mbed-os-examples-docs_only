@@ -4,7 +4,8 @@
 // Create flash IAP block device
 FlashIAPBlockDevice bd;
 
-int main() {
+int main()
+{
     printf("FlashIAPBlockDevice test\n");
 
     // Initialize the flash IAP block device and print the memory layout
@@ -15,7 +16,7 @@ int main() {
     printf("Flash block device erase size: %llu\n",   bd.get_erase_size());
 
     // Write "Hello World!" to the first block
-    char *buffer = (char*)malloc(bd.get_erase_size());
+    char *buffer = (char *)malloc(bd.get_erase_size());
     sprintf(buffer, "Hello World!\n");
     bd.erase(0, bd.get_erase_size());
     bd.program(buffer, 0, bd.get_erase_size());

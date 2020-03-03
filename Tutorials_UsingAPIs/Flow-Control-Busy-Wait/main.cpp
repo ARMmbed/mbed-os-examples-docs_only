@@ -2,8 +2,9 @@
 
 DigitalOut myled(LED1);
 
-int main() {
-    while(1) {
+int main()
+{
+    while (1) {
         myled = 1;
         // printf("LED On\r\n");
         wait(0.2);
