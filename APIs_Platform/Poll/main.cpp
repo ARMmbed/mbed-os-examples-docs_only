@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006-2020 Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ */
 // Transfer bidirectional data between two ports, acting as a virtual link.
 // poll() is used to monitor both ports for input.
 #include "mbed.h"
