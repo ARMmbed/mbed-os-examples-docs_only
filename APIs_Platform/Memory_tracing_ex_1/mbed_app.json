@@ -1,0 +1,3 @@
+{
+    "macros": ["MBED_MEM_TRACING_ENABLED=1"]
+}
