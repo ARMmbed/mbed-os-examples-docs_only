@@ -1,4 +1,7 @@
-
+/*
+ * Copyright (c) 2006-2020 Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ */
 #include "mbed.h"
 #include "nfc/ndef/MessageBuilder.h"
 #include "nfc/ndef/common/URI.h"
