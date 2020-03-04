@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006-2020 Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ */
 // Here's an example using the AT45DB on the K64F
 #include "mbed.h"
 #include "DataFlashBlockDevice.h"
