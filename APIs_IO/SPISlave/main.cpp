@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2006-2020 Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ */
 #include "mbed.h"
 
 SPISlave device(D12, D11, D13, D10); // mosi, miso, sclk, ssel
