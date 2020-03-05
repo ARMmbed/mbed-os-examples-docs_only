@@ -19,15 +19,13 @@ static void callback_ex()
             break;
         }
         putchar(c);
+        putchar('\n');
         led2 = !led2;
     }
 }
 
 int main()
 {
-    // BufferedSerial-specific method - all others are from FileHandle base class
-    device.set_baud(19200);
-
     // Ensure that device.read() returns -EAGAIN when out of data
     device.set_blocking(false);
 

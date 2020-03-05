@@ -6,7 +6,7 @@
 
 int main()
 {
-    // Enable execution from RAM while in main
+    // Enable writing to ROM while in main
     ScopedRomWriteLock make_rom_writable;
 
     //custom_flash_programming();

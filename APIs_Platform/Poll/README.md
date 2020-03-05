@@ -19,7 +19,7 @@ The example transfers bidirectional data between two serial ports, acting as a v
 3. Connect second serial port to PC via USB to serial adapter (UART1).
 4. Open two serial consoles (select associated COM ports, transmission speed: 9600 bps).
 5. Reset the target.
-6. Data send from one console should appear in the other one and vice versa.
+6. Data sent from one console should appear in the other one and vice versa.
 
 **Note:** You can check the associated serial port using `mbedls` command (UART2).  
 **Note:** Note: On Windows you can check the associated COM port in the Device Manager (UART1).  

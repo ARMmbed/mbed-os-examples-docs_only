@@ -2,8 +2,6 @@
  * Copyright (c) 2006-2020 Arm Limited and affiliates.
  * SPDX-License-Identifier: Apache-2.0
  */
-// Transfer bidirectional data between two ports, acting as a virtual link.
-// poll() is used to monitor both ports for input.
 #include "mbed.h"
 
 // Pins for each port are specified using mbed_app.json. Assume no flow control.
@@ -37,6 +35,8 @@ static void copy_some(FileHandle *out, FileHandle *in)
     }
 }
 
+// Transfer bidirectional data between two ports, acting as a virtual link.
+// poll() is used to monitor both ports for input.
 int main()
 {
     pollfh fds[2];
