@@ -1,4 +1,14 @@
 {
+	"config": {
+		"wifi-ssid": {
+			"help": "WiFi SSID",
+			"value": "\"SSID\""
+		},
+		"wifi-password": {
+			"help": "WiFi Password",
+			"value": "\"Password\""
+		}
+	},
 	"target_overrides": {
 		"K64F":{
 			"target.components_add" : ["SPIF"],
