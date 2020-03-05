@@ -1,8 +1,8 @@
 # BusOut example
 
-The BusOut interface can be used to create an artificial bus of pins out of any digital ins. The pins do not have to have sequential hardware addressing. This example program counts up from 0 to 15 or binary 0000 to 1111 . The effect of this is turning LED1-LED4 on or off according to the number going across the bus. The example code toggles LED's on / off, if a tricolor led is on the board then the led will change colors. 
+You can use the BusOut interface to create an artificial bus of pins out of any digital ins. The pins don't need sequential hardware addressing. This example program counts up from 0 to 15 or binary 0000 to 1111. The effect of this is turning LED1-LED4 on or off according to the number going across the bus. The example code toggles LEDs on and off. If a tricolor LED is on the board, the LED changes colors. 
 
-**Note**: When initializing a BusOut object you initialize pins in their bit order from right to left, be careful as the bit order is the reverse of the object initializing order.
+**Note**: When initializing a BusOut object, you initialize pins in their bit order from right to left. Be careful because the bit order is the reverse of the object initializing order.
 
 | Integer | binary | LED On(1) / Off(0)
 | ------- | ------ | ------------------
