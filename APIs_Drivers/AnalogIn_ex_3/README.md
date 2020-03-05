@@ -1,3 +1,3 @@
 # AnalogIn example
 
-Simple example showcasing AnalogIn. Applying a voltage across the analog input pin causes the LED to light up. Can be tested with a small wire connected to VCC. 
+This example showcases AnalogIn. Applying a voltage across the analog input pin causes the LED to light up. You can test this with a small wire connected to VCC. 
