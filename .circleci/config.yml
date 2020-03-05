@@ -10,9 +10,20 @@ jobs:
     steps:
       - checkout:
           path: sinppet/TESTS
+
+      ### Repo structure Tests ###
       - run: |
           cd sinppet/TESTS
           python3 .circleci/repo_checks.py
+
+      ### Astyle Tests ###
+      - run: |
+          cd sinppet/TESTS
+          wget https://github.com/ARMmbed/mbed-os/raw/master/.astylerc
+          git --no-pager diff --name-only --diff-filter=d HEAD $(git merge-base --fork-point origin/master) | ( grep '.\(c\|cpp\|h\|hpp\)$' || true ) | while read file; do astyle -n --options=.astylerc "${file}"; done
+          git diff --exit-code --diff-filter=d --color
+
+      ### Compile Tests ###
       - run: mv sinppet/TESTS/mbed-os.lib .
       - run: git clone https://github.com/ARMmbed/mbed-os.git mbed-os
       - run: |
