@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2017-2020 Arm Limited and affiliates.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "mbed.h"
 #include "HeapBlockDevice.h"
 #include "ProfilingBlockDevice.h"
