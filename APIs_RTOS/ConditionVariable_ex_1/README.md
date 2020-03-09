@@ -1,3 +1,3 @@
 # ConditionVariable example
 
-This example shows how to use `ConditionVariable` for thread synchronization/notification.
+This example shows how to use the ConditionVariable API for thread synchronization and notification.
