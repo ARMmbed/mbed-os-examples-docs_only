@@ -14,6 +14,6 @@ int main()
     button.rise(&toggle);  // call toggle function on the rising edge
     while (1) {            // wait around, interrupts will interrupt this!
         heartbeat = !heartbeat;
-        wait_us(250000);
+        ThisThread::sleep_for(250);
     }
 }
