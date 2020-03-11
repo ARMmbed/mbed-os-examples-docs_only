@@ -17,6 +17,6 @@ int main()
     // spin in a main loop. flipper will interrupt it to call flip
     while (1) {
         led1 = !led1;
-        ThisThread::sleep_for((200);
+        ThisThread::sleep_for(200);
     }
 }
