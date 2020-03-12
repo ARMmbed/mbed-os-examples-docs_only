@@ -92,19 +92,19 @@ int main()
 
     // Sleep while waiting for user input to set the desired delay
     while (select_state < 2) {
-        wait_ms(10);
+        ThisThread::sleep_for(10);
     }
 
     // Once the delay has been input, blink back the configured hours and
     // minutes selected
     for (uint8_t i = 0; i < hour_count * 2; i++) {
         hour_led = !hour_led;
-        wait(0.25f);
+        ThisThread::sleep_for(250);
     }
 
     for (uint8_t i = 0; i < min_count * 2; i++) {
         min_led = !min_led;
-        wait(0.25f);
+        ThisThread::sleep_for(250);
     }
 
     // Attach the low power ticker with the configured alarm delay

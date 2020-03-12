@@ -21,9 +21,9 @@ int main()
     worker_thread.start(mbed::callback(worker_thread_fun));
 
     while (true) {
-        wait(1.0);
+        ThisThread::sleep_for(1000);
         event_flags.set(SAMPLE_FLAG1);
-        wait(0.5);
+        ThisThread::sleep_for(500);
         event_flags.set(SAMPLE_FLAG2);
     }
 }
