@@ -1,0 +1,29 @@
+{
+    "config": {
+        "CAN1_RD": {
+            "help": "CAN1 rd pin",
+            "value": "NC"
+        },
+        "CAN1_TD": {
+            "help": "CAN1 td pin",
+            "value": "NC"
+        },
+        "CAN2_RD": {
+            "help": "CAN2 rd pin",
+            "value": "NC"
+        },
+        "CAN2_TD": {
+            "help": "CAN2 td pin",
+            "value": "NC"
+        }
+ 
+    },
+    "target_overrides": {
+        "*": {
+            "CAN1_RD": "p9",
+            "CAN1_TD": "p10",
+            "CAN2_RD": "p30",
+            "CAN2_TD": "p29"
+        }
+    }
+}
