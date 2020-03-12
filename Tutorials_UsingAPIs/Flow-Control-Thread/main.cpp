@@ -8,7 +8,7 @@ void led2_thread()
 {
     while (true) {
         led2 = !led2;
-        wait(1);
+        ThisThread::sleep_for(1000);
     }
 }
 
@@ -20,6 +20,6 @@ int main()
 
     while (true) {
         led1 = !led1;
-        wait(0.5);
+        ThisThread::sleep_for(500);
     }
 }
