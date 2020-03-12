@@ -1,4 +1,20 @@
 {
+	"config": {
+		"sock-type": "TCP",
+		"echo-server-hostname": {
+			"help": "Echo server host name.",
+			"value": "\"echo.mbedcloudtesting.com\""
+		},
+		"echo-server-port": {
+			"help": "Echo server port number.",
+			"value": 7
+		},
+		"trace-level": {
+			"help": "Options are TRACE_LEVEL_ERROR,TRACE_LEVEL_WARN,TRACE_LEVEL_INFO,TRACE_LEVEL_DEBUG",
+			"macro_name": "MBED_TRACE_MAX_LEVEL",
+			"value": "TRACE_LEVEL_INFO"
+		}
+	},
 	"target_overrides": {
 		"K64F":{
 			"target.components_add" : ["SPIF"],
