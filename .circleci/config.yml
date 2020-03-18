@@ -20,7 +20,7 @@ jobs:
       - run: |
           cd sinppet/TESTS
           wget https://github.com/ARMmbed/mbed-os/raw/master/.astylerc
-          git --no-pager diff --name-only --diff-filter=dr HEAD $(git merge-base --fork-point origin/master) | ( grep '.\(c\|cpp\|h\|hpp\)$' || true ) | while read file; do astyle -n --options=.astylerc "${file}"; done
+          git --no-pager diff --name-only --diff-filter=dr $(git merge-base --fork-point origin/master) HEAD | ( grep '.\(c\|cpp\|h\|hpp\)$' || true ) | while read file; do astyle -n --options=.astylerc "${file}"; done
           git diff --exit-code --diff-filter=dr --color
 
       ### Compile Tests ###
