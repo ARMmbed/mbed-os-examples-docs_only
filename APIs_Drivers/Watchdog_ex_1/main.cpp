@@ -31,6 +31,6 @@ int main()
     while (1) {
         printf("\r%3i", countdown--);
         fflush(stdout);
-        wait(TIMEOUT_MS / 1000.0 / 10);
+        ThisThread::sleep_for(TIMEOUT_MS / 10);
     }
 }
