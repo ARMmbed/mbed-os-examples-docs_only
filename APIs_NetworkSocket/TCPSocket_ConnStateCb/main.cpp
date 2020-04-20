@@ -6,6 +6,8 @@
 #include "mbed.h"
 #include "nsapi_types.h"
 
+using namespace std::chrono_literals;
+
 // Network interface
 EthernetInterface eth;
 Mutex print_mutex;
@@ -50,7 +52,7 @@ int main()
     eth.connect();
 
     safe_print("Connecting started...\r\n");
-    ThisThread::sleep_for(10000);
+    ThisThread::sleep_for(10s);
 
     safe_print("Disconnect\r\n");
     eth.disconnect();

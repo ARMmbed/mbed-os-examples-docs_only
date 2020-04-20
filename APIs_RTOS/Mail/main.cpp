@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 /* Mail */
 typedef struct {
     float    voltage; /* AD result of measured voltage */
@@ -24,7 +26,7 @@ void send_thread(void)
         mail->current = (i * 0.1) * 11;
         mail->counter = i;
         mail_box.put(mail);
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 }
 

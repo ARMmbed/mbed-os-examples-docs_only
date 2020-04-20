@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 BusIn nibble(D0, D1, D2, D3); // Change these pins to buttons on your board.
 
 int main()
@@ -48,6 +50,6 @@ int main()
                 printf("0b1111, D3,D2,D1,D0 are high \n\r");
                 break;
         }
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 }

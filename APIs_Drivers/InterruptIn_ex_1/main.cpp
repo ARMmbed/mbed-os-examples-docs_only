@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 class Counter {
 public:
     Counter(PinName pin) : _interrupt(pin)          // create the InterruptIn on the pin specified to Counter
@@ -33,6 +35,6 @@ int main()
 {
     while (1) {
         printf("Count so far: %d\n", counter.read());
-        ThisThread::sleep_for(2000);
+        ThisThread::sleep_for(2s);
     }
 }

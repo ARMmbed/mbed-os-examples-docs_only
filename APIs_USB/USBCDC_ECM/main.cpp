@@ -5,6 +5,8 @@
 #include "mbed.h"
 #include "USBCDC_ECM.h"
 
+using namespace std::chrono_literals;
+
 /* Ethernet II frame */
 typedef struct {
     uint8_t dst_mac[6];
@@ -25,11 +27,11 @@ USBCDC_ECM ecm;
 int main()
 {
     // Let the USB device to setup
-    ThisThread::sleep_for(10);
+    ThisThread::sleep_for(10ms);
 
     // Send "Hello world" packets in loop
     while (true) {
         ecm.send((uint8_t *)&packet, sizeof(packet));
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 }

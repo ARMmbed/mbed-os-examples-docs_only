@@ -7,14 +7,14 @@
 
 // Create a serial object
 static UnbufferedSerial serial(USBTX, USBRX);
-char *c = new char[1];
 
 // A function that echoes any received data back
 void echo()
 {
     while (serial.readable()) {
-        serial.read(c, sizeof(c));
-        serial.write(c, sizeof(c));
+        char c;
+        serial.read(&c, sizeof(c));
+        serial.write(&c, sizeof(c));
     }
 }
 

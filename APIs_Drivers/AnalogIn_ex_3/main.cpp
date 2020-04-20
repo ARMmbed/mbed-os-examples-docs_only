@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 // Initialize a pins to perform analog input and digital output functions
 AnalogIn   ain(A0);
 DigitalOut dout(LED1);
@@ -24,6 +26,6 @@ int main(void)
         // print the percentage and 16 bit normalized values
         printf("percentage: %3.3f%%\n", ain.read() * 100.0f);
         printf("normalized: 0x%04X \n", ain.read_u16());
-        ThisThread::sleep_for(200);
+        ThisThread::sleep_for(200ms);
     }
 }

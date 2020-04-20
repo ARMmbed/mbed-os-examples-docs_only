@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 InterruptIn button(BUTTON1);
 DigitalOut led(LED1);
 
@@ -23,6 +25,6 @@ int main()
 
     while (1) {
         // Wait and let interrupts take care of the rest
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 }

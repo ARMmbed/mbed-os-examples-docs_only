@@ -5,6 +5,8 @@
 #include "mbed.h"
 #include "USBMouse.h"
 
+using namespace std::chrono_literals;
+
 USBMouse mouse;
 // x and y axis of the joystick
 AnalogIn   ainx(A0);
@@ -55,10 +57,10 @@ int main()
         if (a_iny == 99) {
             //click
             mouse.click(MOUSE_LEFT);
-            ThisThread::sleep_for(400);
+            ThisThread::sleep_for(400ms);
         }
         // moves mouse to specified x, y coordinates on screen
         mouse.move(x, y);
-        ThisThread::sleep_for(1);
+        ThisThread::sleep_for(1ms);
     }
 }

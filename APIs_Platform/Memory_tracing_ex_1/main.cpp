@@ -7,6 +7,7 @@
 #include "mbed.h"
 #include "mbed_mem_trace.h"
 
+using namespace std::chrono_literals;
 
 int main()
 {
@@ -15,7 +16,7 @@ int main()
         void *p = malloc(50);
         printf("50B allocated at %p\n", p);
 
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
 
         free(p);
         printf("50B freed at %p\n\n", p);

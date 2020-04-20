@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 // Toggle all four LEDs
 // LED1 = P1.18  LED2 = P1.20  LED3 = P1.21  LED4 = P1.23
 #define LED_MASK 0x00B40000
@@ -17,8 +19,8 @@ int main()
     ledport.output();
     while (1) {
         ledport = LED_MASK;
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
         ledport = 0;
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 }

@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 static DigitalOut led1(LED1);
 static DigitalOut led2(LED2);
 
@@ -35,6 +37,6 @@ int main()
 
     while (1) {
         led1 = !led1;
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
     }
 }

@@ -5,6 +5,8 @@
 #include "mbed.h"
 #include "USBMouse.h"
 
+using namespace std::chrono_literals;
+
 //setup mouse to be absolute
 USBMouse mouse(true, ABS_MOUSE);
 
@@ -29,6 +31,6 @@ int main(void)
         //x_screen, y_screen will be the mouse's position on the screen
         mouse.move(x_screen, y_screen);
         angle += 3;
-        ThisThread::sleep_for(10);
+        ThisThread::sleep_for(10ms);
     }
 }

@@ -5,6 +5,8 @@
 #include "mbed.h"
 #include "USBMouseKeyboard.h"
 
+using namespace std::chrono_literals;
+
 //LED1: NUM_LOCK
 //LED2: CAPS_LOCK
 //LED3: SCROLL_LOCK
@@ -32,14 +34,14 @@ int main(void)
         //example of modifier key press
         key_mouse.key_code(KEY_CAPS_LOCK);
         leds = key_mouse.lock_status();
-        ThisThread::sleep_for(50);
+        ThisThread::sleep_for(50ms);
         key_mouse.media_control(KEY_VOLUME_UP);
         key_mouse.key_code(KEY_NUM_LOCK);
         leds = key_mouse.lock_status();
-        ThisThread::sleep_for(50);
+        ThisThread::sleep_for(50ms);
         angle += 10;
         key_mouse.key_code(KEY_SCROLL_LOCK);
         leds = key_mouse.lock_status();
-        ThisThread::sleep_for(50);
+        ThisThread::sleep_for(50ms);
     }
 }

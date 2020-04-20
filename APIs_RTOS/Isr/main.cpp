@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 Ticker ticker;
 Thread thread;
 Queue<const char *, 5> trail;
@@ -36,7 +38,7 @@ void handler()
         print_lock.unlock();
         while (true) {
             trail.put(&(ExecutionMessages[USER]));
-            ThisThread::sleep_for(500);
+            ThisThread::sleep_for(500ms);
         }
     }
 }

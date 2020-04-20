@@ -4,10 +4,6 @@
  */
 #include "mbed.h"
 
-// Time constants in seconds
-std::chrono::hours hour_inc;
-std::chrono::minutes min_inc;
-
 // Globals
 DigitalOut alarm_out(D2, 0);
 DigitalOut alarm_led(LED_RED, 1);
@@ -19,8 +15,11 @@ InterruptIn sel(BUTTON2);
 
 LowPowerTicker alarm_event;
 
-std::chrono::microseconds  delay;
-volatile uint8_t  select_state = 0;
+std::chrono::hours hour_inc;
+std::chrono::minutes min_inc;
+std::chrono::microseconds delay;
+
+volatile uint8_t select_state = 0;
 
 // Timer Callbacks
 void inc_select(void)
@@ -49,7 +48,7 @@ void inc_delay(void)
         delay += hour_inc++;
         hour_led = !hour_led;
     } else {
-        delay =+ min_inc++;
+        delay = +min_inc++;
         min_led = !min_led;
     }
 }

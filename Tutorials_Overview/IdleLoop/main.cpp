@@ -1,6 +1,8 @@
 #include "mbed.h"
 #include "rtos_idle.h"
 
+using namespace std::chrono_literals;
+
 // LED for main thread
 DigitalOut led2(LED2);
 // LED for idle thread
@@ -29,6 +31,6 @@ int main()
 {
 
     watchdogThread.start(callback(&watchdogQueue, &EventQueue::dispatch_forever));
-    watchdogTicker.attach(callback(&watchdogRefreshIsr), 5);
+    watchdogTicker.attach(callback(&watchdogRefreshIsr), 5s);
     rtos_attach_idle_hook(&new_idle_loop);
 }

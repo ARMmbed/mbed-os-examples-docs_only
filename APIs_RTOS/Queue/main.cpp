@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 typedef struct {
     float    voltage;   /* AD result of measured voltage */
     float    current;   /* AD result of measured current */
@@ -25,7 +27,7 @@ void send_thread(void)
         message->current = (i * 0.1) * 11;
         message->counter = i;
         queue.put(message);
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 }
 
