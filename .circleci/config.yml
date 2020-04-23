@@ -12,23 +12,32 @@ jobs:
           path: sinppet/TESTS
 
       ### Repo structure Tests ###
-      - run: |
-          cd sinppet/TESTS
-          python3 .circleci/repo_checks.py
+      - run:
+          name: Repo structure Tests
+          command: |
+            cd sinppet/TESTS
+            python3 .circleci/repo_checks.py
 
       ### Astyle Tests ###
-      - run: |
-          cd sinppet/TESTS
-          wget https://github.com/ARMmbed/mbed-os/raw/master/.astylerc
-          git --no-pager diff --name-only --diff-filter=dr $(git merge-base --fork-point origin/master) HEAD | ( grep '.\(c\|cpp\|h\|hpp\)$' || true ) | while read file; do astyle -n --options=.astylerc "${file}"; done
-          git diff --exit-code --diff-filter=dr --color
+      - run:
+          name: Astyle Tests
+          command: |
+            cd sinppet/TESTS
+            wget https://github.com/ARMmbed/mbed-os/raw/master/.astylerc
+            git --no-pager diff --name-only --diff-filter=dr $(git merge-base --fork-point origin/master) HEAD | ( grep '.\(c\|cpp\|h\|hpp\)$' || true ) | while read file; do astyle -n --options=.astylerc "${file}"; done
+            git diff --exit-code --diff-filter=dr --color
 
       ### Compile Tests ###
-      - run: mv sinppet/TESTS/mbed-os.lib .
-      - run: git clone https://github.com/ARMmbed/mbed-os.git mbed-os
-      - run: |
-          mbed config root .
-          mbed update
-          mbed add https://github.com/c1728p9/AudioPlayer
-          mbed add https://github.com/ARMmbed/mbed-nfc-m24sr
-          mbed test --compile -m K64F -t GCC_ARM -n sinppet-* --app-config=sinppet/TESTS/test.json -v
+      - run:
+          name: Checkout mbed OS and libraries
+          command: |
+            mv sinppet/TESTS/mbed-os.lib .
+            git clone https://github.com/ARMmbed/mbed-os.git mbed-os
+            mbed config root .
+            mbed update
+            mbed add https://github.com/c1728p9/AudioPlayer
+            mbed add https://github.com/ARMmbed/mbed-nfc-m24sr
+      - run:
+          name: Compile Tests
+          command: |
+            mbed test --compile -m K64F -t GCC_ARM -n sinppet-* --app-config=sinppet/TESTS/test.json -v
