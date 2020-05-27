@@ -5,7 +5,7 @@
 
 #include "mbed.h"
 
-void flip(DigitalOut& led)
+void flip(DigitalOut &led)
 {
     led = !led;
 }
