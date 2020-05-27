@@ -5,9 +5,6 @@
 
 #include "mbed.h"
 
-DigitalOut led1(LED1);
-DigitalOut led2(LED2);
-
 void flip(DigitalOut& led)
 {
     led = !led;
@@ -15,6 +12,9 @@ void flip(DigitalOut& led)
 
 int main()
 {
+    DigitalOut led1(LED1);
+    DigitalOut led2(LED2);
+
     // creates a queue with the default size
     EventQueue queue;
 
