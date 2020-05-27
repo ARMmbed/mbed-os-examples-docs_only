@@ -10,14 +10,9 @@ EventQueue queue(32 * EVENTS_EVENT_SIZE);
 Thread t;
 
 
-// It's safe to use UnbufferedSerial in ISR context
-UnbufferedSerial console(USBTX, USBRX);
-
 void rise_handler(void)
 {
-    char buf[64];
-    sprintf(buf, "rise_handler in context %p\n", ThisThread::get_id());
-    console.write(buf, strlen(buf));
+    queue.call(printf, "rise_handler in context %p\n", ThisThread::get_id());
     // Toggle LED
     led1 = !led1;
 }
