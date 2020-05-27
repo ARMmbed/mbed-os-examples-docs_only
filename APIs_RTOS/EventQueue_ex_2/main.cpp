@@ -15,6 +15,6 @@ int main()
     queue.call_in(2000, printf, "called in 2 seconds\n");
     queue.call_every(1000, printf, "called every 1 seconds\n");
 
-    // events are executed by the dispatch method
-    queue.dispatch();
+    // events are executed by the dispatch_forever method
+    queue.dispatch_forever();
 }
