@@ -4,7 +4,6 @@
  */
 #include "mbed.h"
 #include "EthernetInterface.h"
-#include "TCPServer.h"
 #include "TCPSocket.h"
 
 int main()

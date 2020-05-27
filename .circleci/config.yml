@@ -9,20 +9,20 @@ jobs:
       - image: mbedos/mbed-os-env:stable
     steps:
       - checkout:
-          path: sinppet/TESTS
+          path: snippet/TESTS
 
       ### Repo structure Tests ###
       - run:
           name: Repo structure Tests
           command: |
-            cd sinppet/TESTS
+            cd snippet/TESTS
             python3 .circleci/repo_checks.py
 
       ### Astyle Tests ###
       - run:
           name: Astyle Tests
           command: |
-            cd sinppet/TESTS
+            cd snippet/TESTS
             wget https://github.com/ARMmbed/mbed-os/raw/master/.astylerc
             git --no-pager diff --name-only --diff-filter=dr $(git merge-base --fork-point origin/master) HEAD | ( grep '.\(c\|cpp\|h\|hpp\)$' || true ) | while read file; do astyle -n --options=.astylerc "${file}"; done
             git diff --exit-code --diff-filter=dr --color
@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Checkout mbed OS and libraries
           command: |
-            mv sinppet/TESTS/mbed-os.lib .
+            mv snippet/TESTS/mbed-os.lib .
             git clone https://github.com/ARMmbed/mbed-os.git mbed-os
             mbed config root .
             mbed update
@@ -40,4 +40,4 @@ jobs:
       - run:
           name: Compile Tests
           command: |
-            mbed test --compile -m K64F -t GCC_ARM -n sinppet-* --app-config=sinppet/TESTS/test.json -v
+            mbed test --compile -m K64F -t GCC_ARM -n snippet-* --app-config=snippet/TESTS/test.json -v
