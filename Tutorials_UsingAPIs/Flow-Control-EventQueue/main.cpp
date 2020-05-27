@@ -4,10 +4,14 @@
  */
 
 #include "mbed.h"
-#include "mbed_events.h"
 
 DigitalOut led1(LED1);
 DigitalOut led2(LED2);
+
+void flip(DigitalOut& led)
+{
+    led = !led;
+}
 
 int main()
 {
@@ -15,12 +19,8 @@ int main()
     EventQueue queue;
 
     // events are simple callbacks
-    queue.call_every(1000, [] {
-        led1 = !led1;
-    });
-    queue.call_every(500, [] {
-        led2 = !led2;
-    });
+    queue.call_every(1000, flip, led1);
+    queue.call_every(500, flip, led2);
 
     // events are executed by the dispatch method
     queue.dispatch_forever();
