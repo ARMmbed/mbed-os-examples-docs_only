@@ -35,8 +35,8 @@ jobs:
             git clone https://github.com/ARMmbed/mbed-os.git mbed-os
             mbed config root .
             mbed update
-            mbed add https://github.com/c1728p9/AudioPlayer
-            mbed add https://github.com/ARMmbed/mbed-nfc-m24sr
+            mbed add AudioPlayer
+            mbed add mbed-nfc-m24sr
       - run:
           name: Compile Tests
           command: |
