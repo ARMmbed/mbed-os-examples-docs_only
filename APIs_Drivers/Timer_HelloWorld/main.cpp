@@ -4,6 +4,7 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono;
 
 Timer t;
 
@@ -12,5 +13,5 @@ int main()
     t.start();
     printf("Hello World!\n");
     t.stop();
-    printf("The time taken was %f seconds\n", t.read());
+    printf("The time taken was %llu milliseconds\n", duration_cast<milliseconds>(t.elapsed_time()).count());
 }
