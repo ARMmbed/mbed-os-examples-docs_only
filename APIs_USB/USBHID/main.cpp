@@ -4,7 +4,7 @@
  */
 #include <stdio.h>
 #include "mbed.h"
-#include "drivers/USBHID.h"
+#include "usb/USBHID.h"
 
 // Declare a USBHID device
 USBHID HID(8, 8, 0x1234, 0x0006, 0x0001, true);
