@@ -20,13 +20,13 @@ void handler(int count)
 void post_events(void)
 {   
     // Events can be posted multiple times and enqueue gracefully until
-    // the dispatch function is called. Each event will be processed 
+    // the dispatch function is called. Each event will be processed
     // subject to any delay and period specified. Each time an event has
-    // been dispatched it will be re-queued ready for the next dispatch 
+    // been dispatched it will be re-queued ready for the next dispatch
     // period.
     event1.post(1);      // Event1 with a value of 1
     event1.post(2);      // Event1 with a value of 2
-    event1.post(3);      // Event1 with a value of 3  
+    event1.post(3);      // Event1 with a value of 3
 
     // Cancel the last event posted ie Event1 with a value of 3
     event1.cancel();
@@ -40,26 +40,26 @@ void post_events(void)
 
 // Example  demonstrates the following:
 // 1. Post 5 different events to a queue
-// 2. Configure the event delay and period for each 
+// 2. Configure the event delay and period for each
 // 3. Invoke the dispatcher to dispatch events for a specified period
 //
-//    | 100ms |    200ms    | 100ms | 100ms |    200ms     | 
+//    | 100ms |    200ms    | 100ms | 100ms |    200ms     |
 //            ^             ^       ^       ^              ^
 //       Events 1,2,4       ^       ^       ^              ^
 //        dispatched        ^       ^       ^              ^
 //                          ^       ^       ^              ^
 //                   Events 1,2,4   ^       ^              ^
-//                    dispatched    ^       ^              ^ 
+//                    dispatched    ^       ^              ^
 //                                  ^       ^              ^
 //                               Event 5    ^              ^
 //                                          ^              ^
 //                                      Event 1,2,4        ^
-//                                       dispatched        ^ 
+//                                       dispatched        ^
 //                                                         ^
 //                                                       Events 1,2,4
 //                                                        dispatched
 //
-// 
+//
 int main()
 {
     // Example 1 Dispatch posted events for a specified period
@@ -80,7 +80,7 @@ int main()
     // converted to using Chrono times and thus times are still specified
     // in integer millisecond units.
     // 800 ms will allow the posted events to be dispatched multiple times
-    queue.dispatch(800); 
+    queue.dispatch(800);
 
     event_thread.join();
 
