@@ -18,7 +18,7 @@ void handler(int count)
 }
 
 void post_events(void)
-{   
+{
     // Events can be posted multiple times and enqueue gracefully until
     // the dispatch function is called. Each event will be processed
     // subject to any delay and period specified. Each time an event has
