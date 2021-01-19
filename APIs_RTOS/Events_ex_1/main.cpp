@@ -13,7 +13,8 @@ Event<void(int)> event2(&queue, handler);
 
 void handler(int count)
 {
-    printf("Event = %d \n", count);
+    unsigned time_ms = equeue_tick();
+    printf("Timestamp = %d Event = %d \n", time_ms, count);
     return;
 }
 
@@ -59,7 +60,22 @@ void post_events(void)
 //                                                       Events 1,2,4
 //                                                        dispatched
 //
+// Expected Output
 //
+// Timestamp = 100 Event = 1
+// Timestamp = 127 Event = 2
+// Timestamp = 156 Event = 4
+// Timestamp = 300 Event = 1
+// Timestamp = 327 Event = 2
+// Timestamp = 356 Event = 4
+// Timestamp = 400 Event = 5
+// Timestamp = 500 Event = 1
+// Timestamp = 527 Event = 2
+// Timestamp = 556 Event = 4
+// Timestamp = 700 Event = 1
+// Timestamp = 727 Event = 2
+// Timestamp = 756 Event = 4
+
 int main()
 {
     // Example 1 Dispatch posted events for a specified period
