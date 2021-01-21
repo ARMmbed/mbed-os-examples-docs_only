@@ -70,8 +70,8 @@ int main()
     printf("*** start ***\n");
     Thread event_thread;
 
-    // The event can be manually configured for special timing requirements
-    // specified in milliseconds
+    // The event can be manually configured for special timing requirements.
+    // Timings are specified in milliseconds.
     // Starting delay - 100 msec
     // Delay between each event - 200msec
     event1.delay(100);
@@ -86,7 +86,7 @@ int main()
     event_thread.start(callback(post_events));
 
     // Posted events are dispatched in the context of the queue's dispatch function
-    queue.dispatch(400);        // Dispatch time - 400msec
+    queue.dispatch_for(400ms);        // Dispatch time - 400msec
     // 400 msec - Only 2 set of events will be dispatched as period is 200 msec
 
     event_thread.join();
