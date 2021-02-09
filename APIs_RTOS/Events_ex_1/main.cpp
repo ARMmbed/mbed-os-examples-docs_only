@@ -96,7 +96,7 @@ int main()
     // converted to using Chrono times and thus times are still specified
     // in integer millisecond units.
     // 800 ms will allow the posted events to be dispatched multiple times
-    queue.dispatch(800);
+    queue.dispatch_for(800ms);
 
     event_thread.join();
 
