@@ -39,6 +39,18 @@ int main()
            (buf.full() ? "true" : "false"),
            (buf.empty() ? "true" : "false"));
 
-    return 0;
+    // items can also be written and read in bulk
 
+    printf("Pushing %d elements\n", BUF_SIZE);
+
+    buf.push(data_stream, BUF_SIZE);
+
+    printf("Circular buffer has %d elements\n", buf.size());
+
+    char bytes_read[BUF_SIZE];
+    int elements_popped = buf.pop(bytes_read, BUF_SIZE);
+
+    printf("We popped %d elements and circular buffer has %d elements left\n", elements_popped, buf.size());
+
+    return 0;
 }
