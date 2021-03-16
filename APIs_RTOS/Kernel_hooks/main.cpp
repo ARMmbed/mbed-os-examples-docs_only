@@ -5,11 +5,13 @@
 #include "mbed.h"
 #include "Kernel.h"
 
+using namespace std::chrono_literals;
+
 /* Entry function for test thread */
 void test_thread(void)
 {
     printf("\ntest thread started");
-    ThisThread::sleep_for(2000);
+    ThisThread::sleep_for(2s);
     printf("\ntest thread exiting");
 }
 
@@ -37,14 +39,14 @@ int main()
     Kernel::attach_thread_terminate_hook(thread_terminate_hook);
     Thread *newThread = new Thread(osPriorityNormal1, 1024, NULL, NULL);
     newThread->start(callback(test_thread));
-    ThisThread::sleep_for(4000);
+    ThisThread::sleep_for(4s);
 
     printf("\n\nattach_idle_hook demo:\n");
     //Attach a hook for idle task
     Kernel::attach_idle_hook(test_idle_hook);
 
     while (1) {
-        ThisThread::sleep_for(3000);
+        ThisThread::sleep_for(3s);
     }
     printf("\n\n");
 }

@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 DigitalIn  mypin(SW2); // change this to the button on your board
 DigitalOut myled(LED1);
 
@@ -22,6 +24,6 @@ int main()
     while (1) {
         printf("mypin has value : %d \n\r", mypin.read());
         myled = mypin; // toggle led based on value of button
-        ThisThread::sleep_for(250);
+        ThisThread::sleep_for(250ms);
     }
 }

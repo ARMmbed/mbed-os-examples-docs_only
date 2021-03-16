@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 // Initialize a pins to perform analog and digital output functions
 // Adjust analog output pin name to your board spec.
 AnalogOut  aout(A5);
@@ -20,7 +22,7 @@ int main(void)
             printf("aout = %1.2f volts\n", aout.read() * 3.3f);
             // turn on the led if the voltage is greater than 0.5f * VCC
             dout = (aout > 0.5f) ? 1 : 0;
-            ThisThread::sleep_for(1000);
+            ThisThread::sleep_for(1s);
         }
     }
 }

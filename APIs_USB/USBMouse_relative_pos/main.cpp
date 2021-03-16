@@ -5,6 +5,8 @@
 #include "mbed.h"
 #include "USBMouse.h"
 
+using namespace std::chrono_literals;
+
 //create mouse object
 USBMouse mouse;
 
@@ -23,6 +25,6 @@ int main()
         //will move mouse x, y away from its previous position on the screen
         mouse.move(x, y);
         angle += 3;
-        ThisThread::sleep_for(10);
+        ThisThread::sleep_for(10ms);
     }
 }

@@ -1,5 +1,7 @@
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 #define SAMPLE_FLAG1 (1UL << 0)
 #define SAMPLE_FLAG2 (1UL << 9)
 
@@ -21,9 +23,9 @@ int main()
     worker_thread.start(mbed::callback(worker_thread_fun));
 
     while (true) {
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
         event_flags.set(SAMPLE_FLAG1);
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
         event_flags.set(SAMPLE_FLAG2);
     }
 }

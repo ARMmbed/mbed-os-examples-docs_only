@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 Mutex mutex;
 ConditionVariable cond(mutex);
 
@@ -40,7 +42,7 @@ int main()
         cond.notify_all();
         mutex.unlock();
 
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 
     mutex.lock();

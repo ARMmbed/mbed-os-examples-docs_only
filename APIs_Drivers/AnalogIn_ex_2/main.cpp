@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 AnalogIn input(A0);
 
 #define NUM_SAMPLES 1024
@@ -15,7 +17,7 @@ int main()
 
     for (int i = 0; i < NUM_SAMPLES; i++) {
         samples[i] = input.read_u16();
-        ThisThread::sleep_for(1);
+        ThisThread::sleep_for(1ms);
     }
 
     printf("Results:\n");

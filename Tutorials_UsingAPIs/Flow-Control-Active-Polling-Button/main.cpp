@@ -10,7 +10,7 @@ int main()
     while (1) {
         if (BUTTON_PRESS == button) {
             led = !led;
-            ThisThread::sleep_for(1000);
+            ThisThread::sleep_for(1s);
         }
     }
 }

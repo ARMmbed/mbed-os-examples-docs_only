@@ -10,6 +10,7 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
 
 Ticker ticker;
 DigitalOut led1(LED1);
@@ -43,7 +44,7 @@ int main()
             printf("Message received: %d\n", msg.data[0]);
             led2 = !led2;
         }
-        ThisThread::sleep_for(200);
+        ThisThread::sleep_for(200ms);
     }
 }
 

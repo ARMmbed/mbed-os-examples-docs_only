@@ -10,7 +10,6 @@ void handler(int count);
 Event<void(int)> event1(&queue, handler);
 Event<void(int)> event2(&queue, handler);
 
-
 void handler(int count)
 {
     unsigned time_ms = equeue_tick();
@@ -25,19 +24,17 @@ void post_events(void)
     // subject to any delay and period specified. Each time an event has
     // been dispatched it will be re-queued ready for the next dispatch
     // period.
-    event1.post(1);      // Event1 with a value of 1
-    event1.post(2);      // Event1 with a value of 2
-    event1.post(3);      // Event1 with a value of 3
+    event1.post(1); // Event1 with a value of 1
+    event1.post(2); // Event1 with a value of 2
+    event1.post(3); // Event1 with a value of 3
 
     // Cancel the last event posted ie Event1 with a value of 3
     event1.cancel();
 
-    event1.post(4);      // Event1 with a value of 4
+    event1.post(4); // Event1 with a value of 4
 
-    event2.post(5);      // Event2 with a value of 5
-
+    event2.post(5); // Event2 with a value of 5
 }
-
 
 // Example  demonstrates the following:
 // 1. Post 5 different events to a queue
@@ -83,11 +80,11 @@ int main()
 
     // The event can be manually configured for special timing requirements
     // specified in milliseconds (using Chrono durations)
-    event1.delay(100ms);       // Starting delay - 100 msec
-    event1.period(200ms);      // Delay between each event - 200msec
+    event1.delay(100ms);  // Starting delay - 100 msec
+    event1.period(200ms); // Delay between each event - 200msec
 
-    event2.delay(400ms);           // Starting delay - 400 msec
-    event2.period(non_periodic);   // Single non periodic event
+    event2.delay(400ms);         // Starting delay - 400 msec
+    event2.period(non_periodic); // Single non periodic event
 
     event_thread.start(callback(post_events));
 
@@ -99,5 +96,4 @@ int main()
     queue.dispatch_for(800ms);
 
     event_thread.join();
-
 }

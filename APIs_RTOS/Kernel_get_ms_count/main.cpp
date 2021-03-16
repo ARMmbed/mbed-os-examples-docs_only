@@ -4,18 +4,20 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono;
+
 int main()
 {
     // 64-bit time doesn't wrap for half a billion years, at least
-    uint64_t now = Kernel::get_ms_count();
+    Kernel::Clock::time_point now = Kernel::Clock::now();
 
     // wait a while
-    ThisThread::sleep_for(10);
+    ThisThread::sleep_for(10ms);
 
-    uint64_t later = Kernel::get_ms_count();
+    Kernel::Clock::time_point later = Kernel::Clock::now();
 
     //calculate millisecs elapsed
-    uint64_t elapsed_ms = later - now;
+    milliseconds elapsed_ms = later - now;
 
-    printf("Elapsed ms: %u \r\n", (uint32_t)elapsed_ms);
+    printf("Elapsed ms: %u \r\n", (uint32_t)elapsed_ms.count());
 }

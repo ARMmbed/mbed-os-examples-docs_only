@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 DigitalOut led1(LED1);
 
 int main()
@@ -14,6 +16,6 @@ int main()
 
         // Print something over the serial connection
         printf("Blink! LED is now %d\r\n", led1.read());
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
     }
 }

@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono;
+
 /**
  *  Sonar class for the HC-SR04
  */
@@ -13,9 +15,7 @@ class Sonar {
     Timer        timer;
     Timeout      timeout;  // calls a callback once when a timeout expires
     Ticker       ticker;   // calls a callback repeatedly with a timeout
-    int32_t      begin;
-    int32_t      end;
-    float        distance;
+    duration<float, micro> echo_time;
 
 public:
     /**
@@ -27,7 +27,7 @@ public:
     Sonar(PinName trigger_pin, PinName echo_pin) : trigger(trigger_pin), echo(echo_pin)
     {
         trigger = 0;
-        distance = -1;
+        echo_time = -1us;
 
         echo.rise(callback(this, &Sonar::echo_in));    // Attach handler to the rising interruptIn edge
         echo.fall(callback(this, &Sonar::echo_fall));  // Attach handler to the falling interruptIn edge
@@ -38,7 +38,7 @@ public:
      */
     void start(void)
     {
-        ticker.attach(callback(this, &Sonar::background_read), 0.01f);
+        ticker.attach(callback(this, &Sonar::background_read), 100ms);
     }
 
     /**
@@ -56,7 +56,6 @@ public:
     {
         timer.reset();
         timer.start();
-        begin = timer.read_us();
     }
 
     /**
@@ -65,9 +64,8 @@ public:
      */
     void echo_fall(void)
     {
-        end = timer.read_us();
+        echo_time = timer.elapsed_time();
         timer.stop();
-        distance = end - begin;
     }
 
     /**
@@ -85,7 +83,7 @@ public:
     void background_read(void)
     {
         trigger = 1;
-        timeout.attach(callback(this, &Sonar::trigger_toggle), 10.0e-6);
+        timeout.attach(callback(this, &Sonar::trigger_toggle), 1us);
     }
 
     /**
@@ -93,7 +91,8 @@ public:
      */
     float read(void)
     {
-        return distance / 58.0f;
+        const chrono::duration<float, micro> us_per_cm{58.0f};
+        return echo_time / us_per_cm;
     }
 };
 
@@ -106,7 +105,7 @@ int main()
     sonar.start();
 
     while (1) {
-        ThisThread::sleep_for(100);
+        ThisThread::sleep_for(100ms);
         // Periodically print results from sonar object
         printf("%f\r\n", sonar.read());
     }

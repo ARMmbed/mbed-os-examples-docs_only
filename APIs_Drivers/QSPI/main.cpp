@@ -21,6 +21,8 @@
 #include "mbed.h"
 #include "drivers/QSPI.h"
 
+using namespace std::chrono_literals;
+
 // For Nordic platforms, use fast read. The QSPI flash memory start address,
 // along with the total buffer size, needs to be 4-byte aligned, or divisible by 4.
 #if TARGET_NORDIC
@@ -53,7 +55,7 @@ static bool mem_ready()
         if (QSPI_STATUS_OK != qspi_device.command_transfer(CMD_RDSR, -1, NULL, 0, status_value, STATUS_REG_SIZE)) {
             printf("Reading Status Register failed \n");
         }
-        ThisThread::sleep_for(1);
+        ThisThread::sleep_for(1ms);
     } while ((status_value[0] & BIT_WIP) != 0 && retries);
 
     if ((status_value[0] & BIT_WIP) != 0) {

@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 Thread thread;
 DigitalOut led1(LED1);
 volatile bool running = true;
@@ -13,7 +15,7 @@ void blink(DigitalOut *led)
 {
     while (running) {
         *led = !*led;
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
     }
 }
 
@@ -21,7 +23,7 @@ void blink(DigitalOut *led)
 int main()
 {
     thread.start(callback(blink, &led1));
-    ThisThread::sleep_for(5000);
+    ThisThread::sleep_for(5s);
     running = false;
     thread.join();
 }

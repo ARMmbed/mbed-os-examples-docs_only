@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 void flip(DigitalOut &led)
 {
     led = !led;
@@ -19,8 +21,8 @@ int main()
     EventQueue queue;
 
     // events are simple callbacks
-    queue.call_every(1000, flip, led1);
-    queue.call_every(500, flip, led2);
+    queue.call_every(1s, flip, led1);
+    queue.call_every(500ms, flip, led2);
 
     // events are executed by the dispatch method
     queue.dispatch_forever();

@@ -5,6 +5,8 @@
 #include "mbed.h"
 #include "USBMIDI.h"
 
+using namespace std::chrono_literals;
+
 #define REST -1
 #define C  0
 #define Cs 1
@@ -28,7 +30,7 @@
 #define OCTAVE6  72
 #define OCTAVE7  84
 
-#define WHOLE_NOTE     1150
+#define WHOLE_NOTE     1150ms
 #define HALF_NOTE      (WHOLE_NOTE / 2)
 #define QUARTER_NOTE   (WHOLE_NOTE / 4)
 #define EIGHTH_NOTE    (WHOLE_NOTE / 8)
@@ -39,7 +41,7 @@
 
 USBMIDI midi;
 
-void PlayNote(int note, int octave, uint32_t duration)
+void PlayNote(int note, int octave, chrono::milliseconds duration)
 {
     if (note == REST) {
         ThisThread::sleep_for(duration);

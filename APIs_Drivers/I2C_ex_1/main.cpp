@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 // Read temperature from LM75BD
 
 I2C i2c(I2C_SDA, I2C_SCL);
@@ -20,7 +22,7 @@ int main()
         cmd[1] = 0x00;
         i2c.write(addr8bit, cmd, 2);
 
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
 
         cmd[0] = 0x00;
         i2c.write(addr8bit, cmd, 1);

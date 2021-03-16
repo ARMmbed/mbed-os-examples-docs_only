@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 // A class for flip()-ing a DigitalOut
 class Flipper {
 public:
@@ -26,11 +28,11 @@ Ticker t;
 int main()
 {
     // the address of the object, member function, and interval
-    t.attach(callback(&f, &Flipper::flip), 2.0);
+    t.attach(callback(&f, &Flipper::flip), 2s);
 
     // spin in a main loop. flipper will interrupt it to call flip
     while (1) {
         led1 = !led1;
-        ThisThread::sleep_for(200);
+        ThisThread::sleep_for(200ms);
     }
 }

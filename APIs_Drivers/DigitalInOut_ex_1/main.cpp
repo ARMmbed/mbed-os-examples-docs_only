@@ -5,6 +5,8 @@
 
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 DigitalInOut mypin(LED1);
 
 int main()
@@ -21,11 +23,11 @@ int main()
         // write to pin as output
         mypin.output();
         mypin = !mypin; // toggle output
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
 
         // read from pin as input
         mypin.input();
         printf("mypin.read() = %d \n\r", mypin.read());
-        ThisThread::sleep_for(500);
+        ThisThread::sleep_for(500ms);
     }
 }

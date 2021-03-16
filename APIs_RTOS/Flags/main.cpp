@@ -4,6 +4,8 @@
  */
 #include "mbed.h"
 
+using namespace std::chrono_literals;
+
 Thread thread;
 DigitalOut led(LED1);
 
@@ -21,7 +23,7 @@ int main(void)
     thread.start(callback(led_thread));
 
     while (true) {
-        ThisThread::sleep_for(1000);
+        ThisThread::sleep_for(1s);
         thread.flags_set(0x1);
     }
 }
