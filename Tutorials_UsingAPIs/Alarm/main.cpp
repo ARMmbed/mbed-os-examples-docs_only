@@ -6,9 +6,9 @@
 
 // Globals
 DigitalOut alarm_out(D2, 0);
-DigitalOut alarm_led(LED_RED, 1);
-DigitalOut hour_led(LED_GREEN, 1);
-DigitalOut min_led(LED_BLUE, 1);
+DigitalOut alarm_led(LED1, 1);
+DigitalOut hour_led(LED2, 1);
+DigitalOut min_led(LED3, 1);
 
 InterruptIn inc_time(BUTTON1);
 InterruptIn sel(BUTTON2);
@@ -17,7 +17,6 @@ LowPowerTicker alarm_event;
 
 std::chrono::hours hour_inc;
 std::chrono::minutes min_inc;
-std::chrono::microseconds delay;
 
 volatile uint8_t select_state = 0;
 
@@ -45,10 +44,10 @@ void set_time_leds(void)
 void inc_delay(void)
 {
     if (select_state == 0) {
-        delay += hour_inc++;
+        hour_inc++;
         hour_led = !hour_led;
     } else {
-        delay = +min_inc++;
+        min_inc++;
         min_led = !min_led;
     }
 }
@@ -87,7 +86,7 @@ int main()
 
     // Sleep while waiting for user input to set the desired delay
     while (select_state < 2) {
-        ThisThread::sleep_for(10s);
+        ThisThread::sleep_for(10ms);
     }
 
     // Once the delay has been input, blink back the configured hours and
@@ -103,6 +102,7 @@ int main()
     }
 
     // Attach the low power ticker with the configured alarm delay
+    auto delay = hour_inc + min_inc;
     alarm_event.attach(&trigger_alarm_out, delay);
 
     // Sleep in the main thread
