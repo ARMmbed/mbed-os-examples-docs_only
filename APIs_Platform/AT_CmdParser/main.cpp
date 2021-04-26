@@ -25,7 +25,7 @@ int main()
 
     printf("\nATCmdParser with ESP8266 example");
 
-    _serial = new BufferedSerial(D1, D0, ESP8266_DEFAULT_BAUD_RATE);
+    _serial = new BufferedSerial(ARDUINO_UNO_D1, ARDUINO_UNO_D0, ESP8266_DEFAULT_BAUD_RATE);
     _parser = new ATCmdParser(_serial, "\r\n");
     _parser->debug_on(true);
 

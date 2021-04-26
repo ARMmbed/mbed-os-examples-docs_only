@@ -5,7 +5,7 @@
 
 #include "mbed.h"
 
-BusIn nibble(D0, D1, D2, D3); // Change these pins to buttons on your board.
+BusIn nibble(ARDUINO_UNO_D0, ARDUINO_UNO_D1, ARDUINO_UNO_D2, ARDUINO_UNO_D3); // Change these pins to buttons on your board.
 
 int main()
 {

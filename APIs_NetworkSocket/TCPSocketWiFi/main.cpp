@@ -13,7 +13,7 @@ OdinWiFiInterface wifi;
 #error [NOT_SUPPORTED] Only Arduino form factor devices are supported at this time
 #endif
 #include "ESP8266Interface.h"
-ESP8266Interface wifi(D1, D0);
+ESP8266Interface wifi(ARDUINO_UNO_D1, ARDUINO_UNO_D0);
 #endif
 
 const char *sec2str(nsapi_security_t sec)

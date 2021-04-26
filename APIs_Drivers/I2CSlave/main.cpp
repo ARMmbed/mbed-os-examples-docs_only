@@ -8,7 +8,7 @@
 #error [NOT_SUPPORTED] I2C Slave is not supported
 #endif
 
-I2CSlave slave(D14, D15);
+I2CSlave slave(ARDUINO_UNO_D14, ARDUINO_UNO_D15);
 
 int main()
 {

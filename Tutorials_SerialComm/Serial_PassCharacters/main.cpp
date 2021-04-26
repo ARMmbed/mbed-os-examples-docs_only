@@ -6,7 +6,7 @@
 #include "mbed.h"
 
 static BufferedSerial pc(USBTX, USBRX);
-static BufferedSerial uart(D1, D0);
+static BufferedSerial uart(ARDUINO_UNO_D1, ARDUINO_UNO_D0);
 
 DigitalOut pc_activity(LED1);
 DigitalOut uart_activity(LED2);

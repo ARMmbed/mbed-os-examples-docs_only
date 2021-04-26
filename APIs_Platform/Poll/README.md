@@ -7,8 +7,8 @@ The example transfers bidirectional data between two serial ports, acting as a v
 ```
 {
     "config": {
-        "UART1_TX": "D1",
-        "UART1_RX": "D0",
+        "UART1_TX": "ARDUINO_UNO_D1",
+        "UART1_RX": "ARDUINO_UNO_D0",
         "UART2_TX": "USBTX",
         "UART2_RX": "USBRX"
     }

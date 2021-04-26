@@ -12,7 +12,7 @@ static uint8_t ndef_buffer[1024] = {0};
 
 int main()
 {
-    mbed::nfc::PN512SPITransportDriver pn512_transport(D11, D12, D13, D10, A1, A0);
+    mbed::nfc::PN512SPITransportDriver pn512_transport(ARDUINO_UNO_D11, ARDUINO_UNO_D12, ARDUINO_UNO_D13, ARDUINO_UNO_D10, ARDUINO_UNO_A1, ARDUINO_UNO_A0);
     mbed::nfc::PN512Driver pn512_driver(&pn512_transport);
     events::EventQueue queue;
     mbed::nfc::NFCController nfc(&pn512_driver, &queue, ndef_buffer);

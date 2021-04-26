@@ -4,7 +4,7 @@
  */
 #include "mbed.h"
 
-SPISlave device(D12, D11, D13, D10); // mosi, miso, sclk, ssel
+SPISlave device(ARDUINO_UNO_D12, ARDUINO_UNO_D11, ARDUINO_UNO_D13, ARDUINO_UNO_D10); // mosi, miso, sclk, ssel
 
 int main()
 {

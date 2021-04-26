@@ -11,7 +11,7 @@ const double offset = 65535 / 2;
 
 // The sinewave is created on this pin
 // Adjust analog output pin name to your board spec.
-AnalogOut aout(A5);
+AnalogOut aout(ARDUINO_UNO_A5);
 
 int main()
 {

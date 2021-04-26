@@ -6,7 +6,7 @@
 #include "mbed.h"
 
 static UnbufferedSerial pc(USBTX, USBRX);
-static UnbufferedSerial uart(D1, D0);
+static UnbufferedSerial uart(ARDUINO_UNO_D1, ARDUINO_UNO_D0);
 DigitalOut led1(LED1);
 DigitalOut led4(LED4);
 char *pc2uart = new char[1];

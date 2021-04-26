@@ -7,8 +7,8 @@
 
 USBMouse mouse;
 // x and y axis of the joystick
-AnalogIn   ainx(A0);
-AnalogIn   ainy(A1);
+AnalogIn   ainx(ARDUINO_UNO_A0);
+AnalogIn   ainy(ARDUINO_UNO_A1);
 int16_t a_inx;
 int16_t a_iny;
 

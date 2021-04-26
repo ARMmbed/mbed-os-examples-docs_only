@@ -7,7 +7,7 @@
 
 // Initialize a pins to perform analog and digital output functions
 // Adjust analog output pin name to your board spec.
-AnalogOut  aout(A5);
+AnalogOut  aout(ARDUINO_UNO_A5);
 DigitalOut dout(LED1);
 
 int main(void)

@@ -5,7 +5,7 @@
 
 #include "mbed.h"
 
-BusInOut pins(D0, D1, D2); // Change these pins to buttons on your board.
+BusInOut pins(ARDUINO_UNO_D0, ARDUINO_UNO_D1, ARDUINO_UNO_D2); // Change these pins to buttons on your board.
 
 int main()
 {

@@ -4,8 +4,8 @@
  */
 #include "mbed.h"
 
-SPI spi(D11, D12, D13); // mosi, miso, sclk
-DigitalOut cs(D0);
+SPI spi(ARDUINO_UNO_D11, ARDUINO_UNO_D12, ARDUINO_UNO_D13); // mosi, miso, sclk
+DigitalOut cs(ARDUINO_UNO_D0);
 
 int main()
 {

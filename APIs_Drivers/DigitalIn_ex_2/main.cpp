@@ -5,8 +5,8 @@
 
 #include "mbed.h"
 
-DigitalIn a(D0);
-DigitalIn b(D1);
+DigitalIn a(ARDUINO_UNO_D0);
+DigitalIn b(ARDUINO_UNO_D1);
 DigitalOut z_not(LED1);
 DigitalOut z_and(LED2);
 DigitalOut z_or(LED3);

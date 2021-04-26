@@ -6,7 +6,7 @@
 #include "mbed.h"
 
 // Initialize a pins to perform analog input and digital output functions
-AnalogIn   ain(A0);
+AnalogIn   ain(ARDUINO_UNO_A0);
 DigitalOut dout(LED1);
 
 int main(void)

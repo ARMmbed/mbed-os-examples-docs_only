@@ -101,7 +101,7 @@ public:
 int main()
 {
     // Create sonar object on pins D5 and D6
-    Sonar sonar(D5, D6);
+    Sonar sonar(ARDUINO_UNO_D5, ARDUINO_UNO_D6);
     // Begin background thread sonar acquires
     sonar.start();
 

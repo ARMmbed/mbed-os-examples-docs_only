@@ -5,7 +5,7 @@
 
 #include "mbed.h"
 
-AnalogIn input(A0);
+AnalogIn input(ARDUINO_UNO_A0);
 
 #define NUM_SAMPLES 1024
 

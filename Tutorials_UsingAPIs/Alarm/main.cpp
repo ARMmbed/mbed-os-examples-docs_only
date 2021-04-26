@@ -9,7 +9,7 @@
 #define MINUTE 60
 
 // Globals
-DigitalOut alarm_out(D2, 0);
+DigitalOut alarm_out(ARDUINO_UNO_D2, 0);
 DigitalOut alarm_led(LED_RED, 1);
 DigitalOut hour_led(LED_GREEN, 1);
 DigitalOut min_led(LED_BLUE, 1);

@@ -5,8 +5,8 @@
 
 #include "mbed.h"
 
-AnalogIn position(A0);
-PwmOut servo(D3);
+AnalogIn position(ARDUINO_UNO_A0);
+PwmOut servo(ARDUINO_UNO_D3);
 
 int main()
 {
