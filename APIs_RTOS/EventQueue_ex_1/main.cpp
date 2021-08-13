@@ -19,7 +19,7 @@ void rise_handler(void)
 
 void fall_handler(void)
 {
-    printf("rise_handler in context %p\n", ThisThread::get_id());
+    printf("fall_handler in context %p\n", ThisThread::get_id());
     // Toggle LED
     led1 = !led1;
 }
