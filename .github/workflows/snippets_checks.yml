@@ -21,7 +21,7 @@ jobs:
 
       - name: Repo structure Tests
         run: |
-          python3 .gitlab/repo_checks.py
+          python3 .github/repo_checks.py
 
       - name: Astyle Tests
         run: |
