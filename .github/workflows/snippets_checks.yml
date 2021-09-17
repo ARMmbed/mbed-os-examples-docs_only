@@ -1,0 +1,46 @@
+# This workflow performs the checks like license check,
+# doxygen, unit tests etc.
+name: Snippets Checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  Snippets-check:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/armmbed/mbed-os-env:master-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Repo structure Tests
+        run: |
+          python3 .gitlab/repo_checks.py
+
+      - name: Astyle Tests
+        run: |
+            wget https://github.com/ARMmbed/mbed-os/raw/master/.astylerc
+            git --no-pager diff --name-only --diff-filter=dr $(git merge-base --fork-point origin/master) HEAD | ( grep '.\(c\|cpp\|h\|hpp\)$' || true ) | while read file; do astyle -n --options=.astylerc "${file}"; done
+            git diff --exit-code --diff-filter=dr --color
+
+      - name: Checkout mbed OS and libraries
+        run: |
+            mkdir -p ../snippet/TESTS
+            cp -r * ../snippet/TESTS/
+            cd ../snippet/TESTS
+            mv -f mbed-os.lib .
+            git clone https://github.com/ARMmbed/mbed-os.git mbed-os
+            mbed config root .
+            mbed update
+            mbed add AudioPlayer
+            mbed add mbed-nfc-m24sr
+
+      - name: Compile Tests
+        run: |
+          mbed test --compile -m K64F -t GCC_ARM -n snippet-* --app-config=snippet/TESTS/test.json -v
