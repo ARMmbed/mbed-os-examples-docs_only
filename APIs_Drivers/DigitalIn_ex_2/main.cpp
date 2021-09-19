@@ -10,7 +10,7 @@ DigitalIn b(D1);
 DigitalOut z_not(LED1);
 DigitalOut z_and(LED2);
 DigitalOut z_or(LED3);
-DigitalOut z_xor(LED4);
+DigitalOut z_xor(LED_RED);
 
 int main()
 {

@@ -6,7 +6,7 @@
 #include "mbed.h"
 
 // Toggle all four LEDs
-// LED1 = P1.18  LED2 = P1.20  LED3 = P1.21  LED4 = P1.23
+// LED1 = P1.18  LED2 = P1.20  LED3 = P1.21  LED_RED = P1.23
 #define LED_MASK 0x00B40000
 
 PortInOut ledport(PortA, LED_MASK);

@@ -7,7 +7,7 @@
 
 // Switch on an LED if any of mbed pins 21-26 is high
 PortIn     p(PortA, 0x0000003F);   // p21-p26
-DigitalOut ind(LED4);
+DigitalOut ind(LED_RED);
 
 int main()
 {

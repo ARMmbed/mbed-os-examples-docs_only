@@ -7,7 +7,7 @@
 
 InterruptIn button(SW2);
 DigitalOut led(LED1);
-DigitalOut flash(LED4);
+DigitalOut flash(LED_RED);
 
 void flip()
 {

@@ -5,7 +5,7 @@
 
 #include "mbed.h"
 
-BusOut myleds(LED1, LED2, LED3, LED4);
+BusOut myleds(LED1, LED2, LED3);
 
 int main()
 {
