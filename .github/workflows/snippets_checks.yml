@@ -31,10 +31,10 @@ jobs:
 
       - name: Checkout mbed OS and libraries
         run: |
-            mkdir -p ../snippet/TESTS
-            cp -r * ../snippet/TESTS/
-            cd ../snippet/TESTS
-            mv -f mbed-os.lib .
+            mkdir -p ../work/snippet/TESTS
+            cp -r * ../work/snippet/TESTS/
+            cd ../work
+            mv snippet/TESTS/mbed-os.lib .
             git clone https://github.com/ARMmbed/mbed-os.git mbed-os
             mbed config root .
             mbed update
@@ -43,4 +43,5 @@ jobs:
 
       - name: Compile Tests
         run: |
+          cd ../work
           mbed test --compile -m K64F -t GCC_ARM -n snippet-* --app-config=snippet/TESTS/test.json -v

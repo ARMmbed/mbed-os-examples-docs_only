@@ -8,7 +8,7 @@
 static UnbufferedSerial pc(USBTX, USBRX);
 static UnbufferedSerial uart(D1, D0);
 DigitalOut led1(LED1);
-DigitalOut led4(LED4);
+DigitalOut led4(LED_RED);
 char *pc2uart = new char[1];
 char *uart2pc = new char[1];
 
