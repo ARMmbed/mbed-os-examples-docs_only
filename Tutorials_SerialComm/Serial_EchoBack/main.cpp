@@ -10,10 +10,10 @@ static BufferedSerial pc(USBTX, USBRX);
 int main()
 {
     char msg[] = "Echoes back to the screen anything you type\n";
-    char *buff = new char[1];
+    char buff;
     pc.write(msg, sizeof(msg));
     while (1) {
-        pc.read(buff, sizeof(buff));
-        pc.write(buff, sizeof(buff));
+        pc.read(&buff, 1);
+        pc.write(&buff, 1);
     }
 }
